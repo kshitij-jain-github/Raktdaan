@@ -18,5 +18,23 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-image: linear-gradient(180deg, #ffc8cf8c 0%, #ffffff 100%);
+    background-size: auto 60vh;
+    background-repeat: no-repeat;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    color: #dc4c64;
+}
+
+.img-card {
+    transform: skewX(-8deg);
+ }
+.text-card {
+     position: absolute;
+     width:70%;
+     margin-right:200px;
+
+}
+
