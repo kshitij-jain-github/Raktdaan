@@ -111,6 +111,16 @@ namespace Raktdaan.Areas.Identity.Pages.Account
 
             [ValidateNever]
             public IEnumerable<SelectListItem> RoleList { get; set; }
+
+            [Required]
+            public string Full_Name { get; set; }
+            public string? Blood_group { get; set; }
+            public string? State { get; set; }
+            public string? City { get; set; }
+            public string? Country { get; set; }
+             public string? PostalCode { get; set; }
+            public string? Address { get; set; }
+            public string? PhoneNumber { get; set; }
         }
 
 
@@ -144,7 +154,14 @@ namespace Raktdaan.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
-
+                user.Full_Name=Input.Full_Name;
+                user.PhoneNumber=Input.PhoneNumber;
+                user.Address=Input.Address;
+                user.City=Input.City;
+                user.State=Input.State;
+                user.Blood_group=Input.Blood_group;
+                user.Country=Input.Country;
+                user.PostalCode=Input.PostalCode;
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);

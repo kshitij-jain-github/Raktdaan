@@ -30,11 +30,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .img-card {
     transform: skewX(-8deg);
+    margin-left:500px
  }
 .text-card {
-     position: absolute;
-     width:70%;
-     margin-right:200px;
-
-}
+    position: absolute;
+    width: 50%;
+  
+ }
 
