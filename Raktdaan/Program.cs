@@ -1,7 +1,8 @@
-using Microsoft.AspNetCore.Identity;
+ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Raktdaan.Data;
+ using Raktdaan.Models;
 using Raktdaan.Utility;
 
 var builder = WebApplication.CreateBuilder(args);

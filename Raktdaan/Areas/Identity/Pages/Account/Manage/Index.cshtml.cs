@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Raktdaan.Models;
 
 namespace Raktdaan.Areas.Identity.Pages.Account.Manage
 {
@@ -58,6 +59,25 @@ namespace Raktdaan.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+            [Required]
+            [Display(Name = "Full Name")]
+            public string Full_Name { get; set; }
+            [Display(Name = "Blood Group")]
+            public string? Blood_group { get; set; }
+            [Display(Name = "State")]
+            public string? State { get; set; }
+            [Display(Name = "City")]
+            public string? City { get; set; }
+            [Display(Name = "Country")]
+            public string? Country { get; set; }
+            [Display(Name = "Phone")]
+            public string? Phone { get; set; }
+            [Display(Name = "Postal Code")]
+            public string? PostalCode { get; set; }
+            [Display(Name = "Address")]
+            public string? Address { get; set; }
+            [EmailAddress]
+            public string Email { get; set; }
         }
 
         private async Task LoadAsync(IdentityUser user)
@@ -65,11 +85,30 @@ namespace Raktdaan.Areas.Identity.Pages.Account.Manage
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
+            var email = await _userManager.GetEmailAsync(user);
+
+            var applicationUser = await _userManager.FindByIdAsync(user.Id) as ApplicationUser;
+            if (applicationUser == null)
+            {
+                // Handle the case where the user is not an instance of ApplicationUser
+                // For example, you could throw an exception or log an error message
+                throw new Exception("User is not an instance of ApplicationUser");
+            }
+
             Username = userName;
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                Full_Name = applicationUser.Full_Name,
+                Blood_group = applicationUser.Blood_group,
+                State = applicationUser.State,
+                City = applicationUser.City,
+                Country = applicationUser.Country,
+                Phone = applicationUser.Phone,
+                PostalCode = applicationUser.PostalCode,
+                Address = applicationUser.Address,
+                Email = email
             };
         }
 
@@ -88,6 +127,7 @@ namespace Raktdaan.Areas.Identity.Pages.Account.Manage
         public async Task<IActionResult> OnPostAsync()
         {
             var user = await _userManager.GetUserAsync(User);
+
             if (user == null)
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
@@ -98,7 +138,13 @@ namespace Raktdaan.Areas.Identity.Pages.Account.Manage
                 await LoadAsync(user);
                 return Page();
             }
-
+            var applicationUser = await _userManager.FindByIdAsync(user.Id) as ApplicationUser;
+            if (applicationUser == null)
+            {
+                // Handle the case where the user is not an instance of ApplicationUser
+                // For example, you could throw an exception or log an error message
+                throw new Exception("User is not an instance of ApplicationUser");
+            }
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
             if (Input.PhoneNumber != phoneNumber)
             {
@@ -109,7 +155,21 @@ namespace Raktdaan.Areas.Identity.Pages.Account.Manage
                     return RedirectToPage();
                 }
             }
+            applicationUser.Full_Name = Input.Full_Name;
+            applicationUser.Blood_group = Input.Blood_group;
+            applicationUser.State = Input.State;
+            applicationUser.City = Input.City;
+            applicationUser.Country = Input.Country;
+            applicationUser.Phone = Input.Phone;
+            applicationUser.PostalCode = Input.PostalCode;
+            applicationUser.Address = Input.Address;
 
+            var updateResult = await _userManager.UpdateAsync(applicationUser);
+            if (!updateResult.Succeeded)
+            {
+                StatusMessage = "Unexpected error when trying to update user details.";
+                return RedirectToPage();
+            }
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
