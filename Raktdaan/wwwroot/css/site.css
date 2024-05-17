@@ -1,25 +1,24 @@
-html {
-  font-size: 14px;
+﻿html {
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
     margin-bottom: 60px;
-    background-image: linear-gradient(180deg, #ffc8cf8c 0%, #ffffff 100%);
     background-size: auto 60vh;
     background-repeat: no-repeat;
 }
@@ -29,12 +28,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .img-card {
-    transform: skewX(-8deg);
-    margin-left:500px
- }
+    margin-left: 450px
+}
+
 .text-card {
     position: absolute;
     width: 50%;
-  
- }
+}
 
+.dt-search {
+    text-align: center
+}
+
+    .dt-search input {
+        width: 400px;
+        border: 2px solid red
+    }
+
+    .dt-search label {
+        color: red;
+    }
+
+ 

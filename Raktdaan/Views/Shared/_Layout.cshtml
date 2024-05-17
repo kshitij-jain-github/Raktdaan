@@ -15,12 +15,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
           rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
+
 </head>
 <body>
     <header>
 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg bg-transparent  shadow  mt-2 ">
+        <nav class="navbar navbar-expand-lg bg-transparent  shadow">
             <!-- Container wrapper -->
             <div class="container-fluid">
               <a class="navbar-brand fw-bolder text-danger" style="font-size:28px;" asp-area="" asp-controller="Home" asp-action="Index">Raktdaan <img class="img-fluid " src="/img/blood-156063_1280.png" width="35" /></a>
@@ -38,19 +40,22 @@
                        
                         
                         <li class="nav-item m-auto fw-bold">
-                            <a class="nav-link text-danger" href="#!">Home</a>
+                            <a class="nav-link text-danger" asp-area="" asp-controller="Home" asp-action="index">Home</a>
                         </li>
                         <li class="nav-item m-auto">
-                            <a class="nav-link text-dark" href="#!">About</a>
-                        </li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                        </li> 
                         <li class="nav-item m-auto">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="FindDonar">Find Donar</a>
+                        </li>
+                      @*   <li class="nav-item m-auto">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
+                        </li> *@
+                        <li class="nav-item m-auto">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="FAQs">FAQs</a>
                         </li>
                         <li class="nav-item m-auto">
-                            <a class="nav-link text-dark" href="#!">FAQs</a>
-                        </li>
-                        <li class="nav-item m-auto">
-                            <a class="nav-link text-dark" href="#!">Find Donar</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
                         </li>
                         
                     </ul>
@@ -71,7 +76,7 @@
         </main>
     </div>
 
-
+    </body>
 
     <!-- Footer -->
     <footer class="text-center text-lg-start bg-body-tertiary text-muted">
@@ -191,10 +196,13 @@
     <!-- Footer -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+      </script>
+
     <!-- MDB -->
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="//cdn.datatables.net/2.0.7/js/dataTables.min.js">
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

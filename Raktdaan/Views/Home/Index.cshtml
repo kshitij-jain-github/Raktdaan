@@ -1,6 +1,7 @@
 ﻿
+
   <!-- Section: Intro -->
-  <section class="mb-5 p-5 intro">
+  <header class="mb-5 p-5 intro">
     
     <div class="intro-lower" class="mt-2">
 
@@ -17,8 +18,8 @@
                                 Are you or a loved one in need of blood? Our search feature allows recipients to find donors in their nearby areas quickly and easily.
 
                              </p>
-                <button data-mdb-ripple-init class="btn btn-danger btn-lg btn-rounded ">Find Blood </button>
-                <button data-mdb-ripple-init class="btn btn-danger btn-lg btn-rounded ms-2">Donate Blood </button>
+                <a asp-action="FindDonar" asp-controller="home"   data-mdb-ripple-init class="btn btn-danger btn-lg btn-rounded ">Find Blood </a>
+                <a asp-area="Identity" asp-page="/Account/Register" data-mdb-ripple-init class="btn btn-danger btn-lg btn-rounded ms-2">Donate Blood </a>
 
               </div>
             </div>
@@ -28,7 +29,7 @@
 
     </div>
   
-</section>
+</header>
   <!-- Section: Intro --><!--Main layout-->
 <main>
     <div class="container">
@@ -355,3 +356,7 @@
     </div>
 </main>
 <!--Main layout-->
+@section Scripts {
+    <script src="//cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
+    <script src="~/js/user.js"></script>
+}
