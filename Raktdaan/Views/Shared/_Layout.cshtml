@@ -22,7 +22,7 @@
     <header>
 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg bg-transparent  shadow">
+        <nav class="navbar navbar-expand-lg  " style="background: hsla(0, 0%, 100%, 0.65); backdrop-filter: blur(30px);">
             <!-- Container wrapper -->
             <div class="container-fluid">
               <a class="navbar-brand fw-bolder text-danger" style="font-size:28px;" asp-area="" asp-controller="Home" asp-action="Index">Raktdaan <img class="img-fluid " src="/img/blood-156063_1280.png" width="35" /></a>
@@ -43,19 +43,19 @@
                             <a class="nav-link text-danger" asp-area="" asp-controller="Home" asp-action="index">Home</a>
                         </li>
                         <li class="nav-item m-auto">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                            <a class="nav-link text-danger" asp-area="" asp-controller="Home" asp-action="About">About</a>
                         </li> 
                         <li class="nav-item m-auto">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="FindDonar">Find Donar</a>
+                            <a class="nav-link text-danger" asp-area="" asp-controller="Home" asp-action="FindDonar">Find Donar</a>
                         </li>
                       @*   <li class="nav-item m-auto">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
                         </li> *@
                         <li class="nav-item m-auto">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="FAQs">FAQs</a>
+                            <a class="nav-link text-danger" asp-area="" asp-controller="Home" asp-action="FAQs">FAQs</a>
                         </li>
                         <li class="nav-item m-auto">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                            <a class="nav-link text-danger" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
                         </li>
                         
                     </ul>
@@ -70,16 +70,15 @@
             <!-- Container wrapper -->
         </nav>
       </header>
-    <div class="container">
+    <div class="container-fluid m-0">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    </body>
-
+  
     <!-- Footer -->
-    <footer class="text-center text-lg-start bg-body-tertiary text-muted">
+    <footer class="text-center text-lg-start  text-danger" style="background: hsla(0, 0%, 100%, 0.65); backdrop-filter: blur(30px);">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <!-- Left -->
@@ -89,22 +88,22 @@
             <!-- Left -->
             <!-- Right -->
             <div>
-                <a href="" class="me-4 text-reset">
+                <a href="" class="me-4 text-danger">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="" class="me-4 text-reset">
+                <a href="" class="me-4 text-danger">
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a href="" class="me-4 text-reset">
+                <a href="" class="me-4 text-danger">
                     <i class="fab fa-google"></i>
                 </a>
-                <a href="" class="me-4 text-reset">
+                <a href="" class="me-4 text-danger">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="" class="me-4 text-reset">
+                <a href="" class="me-4 text-danger">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="" class="me-4 text-reset">
+                <a href="" class="me-4 text-danger">
                     <i class="fab fa-github"></i>
                 </a>
             </div>
@@ -119,7 +118,7 @@
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         <!-- Content -->
-                        <h6 class="text-uppercase fw-bold mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4 text-danger">
                             <i class="fas fa-gem me-3"></i>Company name
                         </h6>
                         <p>
@@ -131,7 +130,7 @@
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                         <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4">
+                        <h6 class="text-uppercase text-danger fw-bold mb-4">
                             Products
                         </h6>
                         <p>
@@ -151,7 +150,7 @@
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                         <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4">
+                        <h6 class="text-uppercase text-danger fw-bold mb-4">
                             Useful links
                         </h6>
                         <p>
@@ -171,7 +170,7 @@
                     <!-- Grid column -->
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                         <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                        <h6 class="text-uppercase text-danger fw-bold mb-4">Contact</h6>
                         <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
                         <p>
                             <i class="fas fa-envelope me-3"></i>
@@ -202,7 +201,7 @@
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="//cdn.datatables.net/2.0.7/js/dataTables.min.js">
+    <script src="//cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
