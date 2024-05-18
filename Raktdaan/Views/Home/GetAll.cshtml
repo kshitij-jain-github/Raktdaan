@@ -1,18 +1,22 @@
 ﻿<link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.5.0/css/rowReorder.dataTables.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+
 
 
 <div class="container p-3 ">
     <div class="row pt-4">
         <div class="col-6">
-         </div>
+          </div>
         <div class="col-6 text-end">
-      
-        </div>
+         </div>
     </div>
     <br /><br />
 
-    <table id="myTable" class="table align-middle mb-5 mt-5 compact hover shadow ">
-        <thead class="bg-danger">
+ 
+    <table id="myTable" class="table nowrap dataTable  no-footer dtr-inlinep">
+       
+        <thead >
             <tr >
                 <th >Name</th>
                 <th>Blood Group</th>
@@ -49,5 +53,7 @@
 
 @section Scripts {
     <script src="//cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
     <script src="~/js/user.js"></script>
 }

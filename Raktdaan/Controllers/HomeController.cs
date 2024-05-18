@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Raktdaan.Data;
 using Raktdaan.Models;
 using System.Diagnostics;
@@ -44,6 +46,35 @@ namespace Raktdaan.Controllers
             return View();
         }
 
+        public IActionResult Donar_details(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return NotFound();
+            }
+
+            var donor = _db.ApplicationUsers
+                .Where(u => u.Id == id)
+                .Select(u => new ApplicationUser
+                {
+                    Full_Name = u.Full_Name, // Adjust according to how you store the user's full name
+                    Blood_group = u.Blood_group,
+                    City = u.City,
+                    State = u.State,
+                    Country = u.Country,
+                    PhoneNumber = u.PhoneNumber, // Adjust if you store contact differently
+                    PostalCode = u.PostalCode // Adjust if you store contact differently
+                })
+                .FirstOrDefault();
+
+            if (donor == null)
+            {
+                return NotFound();
+            }
+
+            return View(donor);
+
+         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

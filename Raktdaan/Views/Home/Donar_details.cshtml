@@ -1,0 +1,26 @@
+﻿@model ApplicationUser
+
+<h2>Donor Details</h2>
+
+<div>
+    <h4>@Model.Full_Name</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Blood Group</dt>
+        <dd class="col-sm-10">@Model.Blood_group</dd>
+
+        <dt class="col-sm-2">City</dt>
+        <dd class="col-sm-10">@Model.City</dd>
+
+        <dt class="col-sm-2">State</dt>
+        <dd class="col-sm-10">@Model.State</dd>
+
+        <dt class="col-sm-2">Country</dt>
+        <dd class="col-sm-10">@Model.Country</dd>
+
+        <dt class="col-sm-2">Phone Number</dt>
+        <dd class="col-sm-10">@Model.PhoneNumber</dd>
+    </dl>
+    <a href="@Url.Action("FindDonar", "Home")" class="btn btn-secondary">Back to List</a>
+</div>
+

@@ -26,27 +26,15 @@ body {
 h1, h2, h3, h4, h5, h6 {
     color: #dc4c64;
 }
-  
- 
+
+
 .dt-search {
     text-align: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
    
-}
-
-    .dt-search input {
-        width: 400px;
-
-     }
-
-    .dt-search label {
-        color: red;
-    }
- 
-
-h1 {
-    margin: 50px 0 30px;
-    text-align: center;
-}
+         
 
 .faq-container {
     max-width: 800px;
