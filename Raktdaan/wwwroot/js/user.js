@@ -30,13 +30,31 @@ $(document).ready(function () {
         .wrap('<div class="input-group"></div>')
         .parent()
         .prepend('<span class="input-group-text"><span class="fas fa-search text-danger" ></span></span>');
- 
-    
-});
+  
+    // Handle click event for the Stripe buy button
+    $(document).on('click', '.stripe-buy-button', function (e) {
+        e.preventDefault();
+        var donorId = $(this).data('id');
 
+        // Create a Checkout Session with the selected price
+        $.ajax({
+            url: '/Payment/CreateCheckoutSession',
+            method: 'POST',
+            data: { donorId: donorId },
+            success: function (sessionId) {
+                var stripe = Stripe('pk_test_51PHdjuSE21W6ukJqMCcDKgj1aCjwbuhtMeF8F3cxlCLx9FDIuNl8Zuk0wFbVm3Q4nvq1fMQIv9zPtkOUwgphEN8z00rzu2NonH');
+                stripe.redirectToCheckout({ sessionId: sessionId });
+            },
+            error: function (error) {
+                console.error("Error creating Stripe Checkout session:", error);
+            }
+        });
+    });
+});
+    
 function loadDataTable() {
     dataTable = $('#myTable').DataTable({
-         "ajax": {
+        "ajax": {
             "url": "/Home/GetAll"
         },
         dom: 'lBfrtip', // Add 'f' to include the search input
@@ -44,7 +62,7 @@ function loadDataTable() {
             search: '_INPUT_',
             searchPlaceholder: "Search records"
         },
-       
+
 
         "columns": [
             { "data": "full_Name" },
@@ -54,30 +72,27 @@ function loadDataTable() {
             { "data": "country" },
             {
                 "data": "id",
-                "render": function (data, type, row) {
-                    if (type === 'display') {
+                "render": function (data) {
+
                     return `
                         <div >
-                            <stripe-buy-button  
-                            buy-button-id="buy_btn_1PHhGMSE21W6ukJqkQVPid79"
-                            publishable-key="pk_test_51PHdjuSE21W6ukJqMCcDKgj1aCjwbuhtMeF8F3cxlCLx9FDIuNl8Zuk0wFbVm3Q4nvq1fMQIv9zPtkOUwgphEN8z00rzu2NonH"
-                            client-reference-id="${data}"
-                               success-url="/Home/Donar_details?id=${data}">
-                            </stripe-buy-button>
-                        </div>
+                           <button class="stripe-buy-button btn btn-danger btn-sm" data-id="${data}">Pay Now</button>
+                         </div>
             
                     `;
-                    } else {
-                        return data; // Return data as is for other types (sorting, filtering, etc.)
-                    }
+
                 },
- 
+
             }
 
         ],
-         
+
         "paging": false, // Disable default paging
 
-       });
-} 
+    });
+}
+
+
+
+
  

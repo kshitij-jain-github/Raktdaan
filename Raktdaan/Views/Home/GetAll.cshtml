@@ -56,4 +56,55 @@
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 
     <script src="~/js/user.js"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            loadDataTable();
+
+            function loadDataTable() {
+                $('#myTable').DataTable({
+                    "ajax": {
+                        "url": "/Home/GetAll"
+                    },
+                    "columns": [
+                        { "data": "full_Name" },
+                        { "data": "blood_group" },
+                        { "data": "city" },
+                        { "data": "state" },
+                        { "data": "country" },
+                        {
+                            "data": "id",
+                            "render": function (data) {
+                                return `
+                                            <button class="stripe-buy-button btn btn-danger btn-sm" data-id="${data}">Pay Now</button>
+                                        `;
+                            }
+                        }
+                    ],
+                    "paging": false
+                });
+            }
+
+            // Handle click event for the Stripe buy button
+            $(document).on('click', '.stripe-buy-button', function (e) {
+                e.preventDefault();
+                var donorId = $(this).data('id');
+
+                // Create a Checkout Session with the selected price
+                $.ajax({
+                    url: '/Payment/CreateCheckoutSession',
+                    method: 'POST',
+                    data: { donorId: donorId },
+                    success: function (sessionId) {
+                        var stripe = Stripe('pk_test_51PHdjuSE21W6ukJqMCcDKgj1aCjwbuhtMeF8F3cxlCLx9FDIuNl8Zuk0wFbVm3Q4nvq1fMQIv9zPtkOUwgphEN8z00rzu2NonH');
+                        stripe.redirectToCheckout({ sessionId: sessionId });
+                    },
+                    error: function (error) {
+                        console.error("Error creating Stripe Checkout session:", error);
+                    }
+                });
+            });
+        });</script>
 }

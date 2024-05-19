@@ -19,21 +19,28 @@ html {
 
 body {
     margin-bottom: 60px;
-    background: #151515;
-}
+    background: #141E46;
+ }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #dc4c64;
+    color: #C70039;
 }
 
+.btn-danger {
+    background-color: #C70039;
+ }
+ 
 
 .dt-search {
     text-align: center;
     margin-bottom: 10px;
     width: 100%;
+
 }
-   
-         
+
+.nav-link {
+    color: #141E46
+}
 
 .faq-container {
     max-width: 800px;
@@ -48,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 30px;
     position: relative;
     overflow: hidden;
-    transition: 0.3 ease;
+    transition: 0.3s ease;
 }
 
     .faq.active {
@@ -288,42 +295,4 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.out-top {
-    animation: rotate 20s linear infinite;
-    transform-origin: 13px 25px;
-}
-
-.in-top {
-    animation: rotate 10s linear infinite;
-    transform-origin: 13px 25px;
-}
-
-.out-bottom {
-    animation: rotate 25s linear infinite;
-    transform-origin: 84px 93px;
-}
-
-.in-bottom {
-    animation: rotate 15s linear infinite;
-    transform-origin: 84px 93px;
-}
-svg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index:-99;
-}
+  
