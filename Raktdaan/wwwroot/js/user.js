@@ -54,14 +54,22 @@ function loadDataTable() {
             { "data": "country" },
             {
                 "data": "id",
-                "render": function (data) {
+                "render": function (data, type, row) {
+                    if (type === 'display') {
                     return `
-                        <div class="w-75 btn-group" role="group">
-                            <a href="/home/donar_details?id=${data}" class="btn btn-danger btn-sm">
-                                <i class="fa fa-pencil-square"></i> Get Contact
-                            </a>
+                        <div >
+                            <stripe-buy-button  
+                            buy-button-id="buy_btn_1PHhGMSE21W6ukJqkQVPid79"
+                            publishable-key="pk_test_51PHdjuSE21W6ukJqMCcDKgj1aCjwbuhtMeF8F3cxlCLx9FDIuNl8Zuk0wFbVm3Q4nvq1fMQIv9zPtkOUwgphEN8z00rzu2NonH"
+                            client-reference-id="${data}"
+                               success-url="/Home/Donar_details?id=${data}">
+                            </stripe-buy-button>
                         </div>
+            
                     `;
+                    } else {
+                        return data; // Return data as is for other types (sorting, filtering, etc.)
+                    }
                 },
  
             }

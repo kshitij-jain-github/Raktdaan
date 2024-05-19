@@ -1,0 +1,15 @@
+﻿@model Raktdaan.Models.PaymentViewModel
+
+@{
+    ViewData["Title"] = "Payment";
+}
+
+<h2>Payment</h2>
+@* card number : 4000 0035 6000 0008 *@
+<script async
+        src="https://js.stripe.com/v3/buy-button.js">
+</script>
+
+ 
+
+<p><a asp-controller="Home" asp-action="Index">Go back to home page</a></p>

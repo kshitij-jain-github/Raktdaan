@@ -22,6 +22,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGenerators.Mvc" Version="8.0.2" />
+    <PackageReference Include="Stripe.net" Version="44.8.0" />
   </ItemGroup>
 
 </Project>
