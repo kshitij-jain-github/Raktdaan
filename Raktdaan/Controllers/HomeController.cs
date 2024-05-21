@@ -51,15 +51,15 @@ namespace Raktdaan.Controllers
 
         public IActionResult Donar_details(string id)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+          /*  var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             var payment = _db.Payments
                 .FirstOrDefault(p => p.UserId == userId && p.DonorId == id && p.Status == "succeeded");
 
             if (payment == null)
             {
-                return RedirectToAction("Index", "Payment", new { donorId = id });
-            }
+                return RedirectToAction("CreateCheckoutSession", "Payment", new { donorId = id });
+            }*/
 
             var donor = _db.ApplicationUsers
                 .Where(u => u.Id == id)

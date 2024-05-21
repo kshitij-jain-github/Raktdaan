@@ -1,35 +1,31 @@
-﻿<link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
-<link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.5.0/css/rowReorder.dataTables.css" />
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+﻿ 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raktdaan Data Table</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.5.0/css/rowReorder.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+    <style>
+        .input-group-text {
+            background-color: white;
+            border: 1px solid #ced4da;
+        }
 
+        .dataTables_wrapper .dataTables_filter {
+            float: right;
+        }
 
-
-<div class="container p-3 ">
-    <div class="row pt-4">
-        <div class="col-6">
-          </div>
-        <div class="col-6 text-end">
-         </div>
-    </div>
-    <br /><br />
-
+        .dataTables_wrapper .dataTables_paginate {
+            float: right;
+        }
+    </style>
  
-    <table id="myTable" class="table nowrap dataTable  no-footer dtr-inlinep">
-       
-        <thead >
-            <tr >
-                <th >Name</th>
-                <th>Blood Group</th>
-                <th>City</th>
-                <th>State</th>
-                <th>Country</th>
-                <th>Status</th>
-            </tr>
-            <tr class="filters">
-                <th><input type="text" placeholder="Search Name" class="column-search" data-column="0" /></th>
-                <!-- Other search inputs -->
-                <th>
-                    <select class="form-select column-search" data-column="1" aria-label="Blood Group">
+    <div class="container p-3">
+        <div class="row pt-4">
+         
+                <div class="col-lg-3 mb-3">
+                    <label for="bloodGroupFilter" class="form-label">Blood Group</label>
+                    <select id="bloodGroupFilter" class="form-select">
                         <option value="">All Blood Groups</option>
                         <option value="A+">A+</option>
                         <option value="A-">A-</option>
@@ -40,71 +36,41 @@
                         <option value="O+">O+</option>
                         <option value="O-">O-</option>
                     </select>
-                </th>
-                <th><input type="text" placeholder="Search City" class="column-search" data-column="2" /></th>
-                <th><input type="text" placeholder="Search State" class="column-search" data-column="3" /></th>
-                <th><input type="text" placeholder="Search Country" class="column-search" data-column="4" /></th>
-                <th></th>
-            </tr>
-        </thead>
-    </table>
-</div>
+                </div>
+                <div class="col-lg-3 mb-3">
+                    <label for="stateFilter" class="form-label">State</label>
+                    <input type="text" id="stateFilter" class="form-control" placeholder="Search State">
+                </div>
+            <div class="col-lg-3 mb-3">
+                    <label for="cityFilter" class="form-label">City</label>
+                    <input type="text" id="cityFilter" class="form-control" placeholder="Search City">
+                </div>
+                <div class="col-lg-3 mb-3">
+                    <label for="countryFilter" class="form-label">Country</label>
+                    <input type="text" id="countryFilter" class="form-control" placeholder="Search Country">
+                </div>
+                <button id="applyFiltersBtn" class="btn  btn-primary ">Apply Filters</button>
+            </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <table id="myTable" class="table table-bordered table-striped table-hover nowrap dataTable no-footer dtr-inline" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Blood Group</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Country</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
 
-
-@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="//cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-
-    <script src="~/js/user.js"></script>
-
-
-
-    <script>
-        $(document).ready(function () {
-            loadDataTable();
-
-            function loadDataTable() {
-                $('#myTable').DataTable({
-                    "ajax": {
-                        "url": "/Home/GetAll"
-                    },
-                    "columns": [
-                        { "data": "full_Name" },
-                        { "data": "blood_group" },
-                        { "data": "city" },
-                        { "data": "state" },
-                        { "data": "country" },
-                        {
-                            "data": "id",
-                            "render": function (data) {
-                                return `
-                                            <button class="stripe-buy-button btn btn-danger btn-sm" data-id="${data}">Pay Now</button>
-                                        `;
-                            }
-                        }
-                    ],
-                    "paging": false
-                });
-            }
-
-            // Handle click event for the Stripe buy button
-            $(document).on('click', '.stripe-buy-button', function (e) {
-                e.preventDefault();
-                var donorId = $(this).data('id');
-
-                // Create a Checkout Session with the selected price
-                $.ajax({
-                    url: '/Payment/CreateCheckoutSession',
-                    method: 'POST',
-                    data: { donorId: donorId },
-                    success: function (sessionId) {
-                        var stripe = Stripe('pk_test_51PHdjuSE21W6ukJqMCcDKgj1aCjwbuhtMeF8F3cxlCLx9FDIuNl8Zuk0wFbVm3Q4nvq1fMQIv9zPtkOUwgphEN8z00rzu2NonH');
-                        stripe.redirectToCheckout({ sessionId: sessionId });
-                    },
-                    error: function (error) {
-                        console.error("Error creating Stripe Checkout session:", error);
-                    }
-                });
-            });
-        });</script>
-}
+ 

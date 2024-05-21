@@ -36,7 +36,7 @@ $(document).ready(function () {
         e.preventDefault();
         var donorId = $(this).data('id');
 
-        // Create a Checkout Session with the selected price
+    /*    // Create a Checkout Session with the selected price
         $.ajax({
             url: '/Payment/CreateCheckoutSession',
             method: 'POST',
@@ -48,7 +48,7 @@ $(document).ready(function () {
             error: function (error) {
                 console.error("Error creating Stripe Checkout session:", error);
             }
-        });
+        });*/
     });
 });
     
@@ -76,7 +76,7 @@ function loadDataTable() {
 
                     return `
                         <div >
-                           <button class="stripe-buy-button btn btn-danger btn-sm" data-id="${data}">Pay Now</button>
+                           <a class=" btn btn-danger btn-sm" href="/home/donar_details?id=${data}">Get Details</a>
                          </div>
             
                     `;

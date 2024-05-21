@@ -25,10 +25,10 @@
     <header>
 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg  " style="background: #FFF5E0 ">
+        <nav class="navbar navbar-expand-lg p-3 pb-1 shadow-0 bg-transparent" >
             <!-- Container wrapper -->
-            <div class="container-fluid">
-              <a class="navbar-brand fw-bolder " style="font-size:28px;" asp-area="" asp-controller="Home" asp-action="Index">Raktdaan <img class="img-fluid " src="/img/blood-156063_1280.png" width="35" /></a>
+            <div class="container">
+                <a class="navbar-brand fw-bolder " style="font-size:34px;" asp-area="" asp-controller="Home" asp-action="Index"> <img class="img-fluid " src="/img/blood-156063_1280.png" width="35" />Raktdaan</a>
                  
                 <!-- Toggle button -->
                 <button class="navbar-toggler" type="button" data-mdb-collapse-init
@@ -42,23 +42,27 @@
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0 ">
                        
                         
-                        <li class="nav-item m-auto fw-bold">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="index">Home</a>
+                        <li class="nav-item m-auto ">
+                            <a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="index">Home</a>
                         </li>
+                        <span class="m-auto">/</span>
                         <li class="nav-item m-auto">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="About">About</a>
-                        </li> 
-                        <li class="nav-item m-auto">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="FindDonar">Find Donar</a>
+                            <a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="About">About</a>
                         </li>
+                        <span class="m-auto">/</span>
+                        <li class="nav-item m-auto fw-bolder">
+                            <a class="nav-link text-danger" asp-area="" asp-controller="Home" asp-action="FindDonar">Find Nearby Donar</a>
+                        </li>
+                        <span class="m-auto">/</span>
                       @*   <li class="nav-item m-auto">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
                         </li> *@
                         <li class="nav-item m-auto">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="FAQs">FAQs</a>
+                            <a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="FAQs">FAQs</a>
                         </li>
+                        <span class="m-auto">/</span>
                         <li class="nav-item m-auto">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                            <a class="nav-link text-primary" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
                         </li>
                         
                     </ul>
@@ -73,6 +77,8 @@
             <!-- Container wrapper -->
         </nav>
       </header>
+ 
+
     <div class="container-fluid m-0">
 
         <main role="main" class="pb-3">

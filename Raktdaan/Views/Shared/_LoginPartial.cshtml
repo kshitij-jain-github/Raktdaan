@@ -7,7 +7,7 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
-            <a id="manage" class="nav-link text-danger" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+            <a id="manage" class="nav-link text-primary" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
     </li>
     <li class="nav-item">
         <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
@@ -17,12 +17,12 @@
 }
 else
 {
-    <li class="nav-item ms-2 mb-2">
-            <a class="nav-link btn btn-outline-danger btn-sm  text-danger" id="register" asp-area="Identity" asp-page="/Account/Register">Donate Blood</a>
-    </li>
-    <li class="nav-item ms-4">
-            <a class="nav-link btn btn-outline-danger btn-sm text-danger" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-
+   
+    <li class="nav-item m-2  ">
+            <a class="nav-link  text-primary" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    </li> 
+        <li class="nav-item  fw-bolder  m-2  ">
+            <a class="nav-link  text-danger bg-light rounded-3" id="register" asp-area="Identity" asp-page="/Account/Register">Resgiter To Donate Blood Now!</a>
+        </li>
 }
 </ul>
