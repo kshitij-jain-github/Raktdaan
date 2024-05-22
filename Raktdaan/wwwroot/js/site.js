@@ -1,4 +1,15 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const items = document.querySelectorAll(".accordion button");
 
-// Write your JavaScript code.
+function toggleAccordion() {
+    const itemToggle = this.getAttribute('aria-expanded');
+
+    for (i = 0; i < items.length; i++) {
+        items[i].setAttribute('aria-expanded', 'false');
+    }
+
+    if (itemToggle == 'false') {
+        this.setAttribute('aria-expanded', 'true');
+    }
+}
+
+items.forEach(item => item.addEventListener('click', toggleAccordion));

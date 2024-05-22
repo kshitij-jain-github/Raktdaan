@@ -57,7 +57,7 @@ function loadDataTable() {
         "ajax": {
             "url": "/Home/GetAll"
         },
-        dom: 'lBfrtip', // Add 'f' to include the search input
+        dom: 'Bfrtip', // Add 'f' to include the search input
         language: {
             search: '_INPUT_',
             searchPlaceholder: "Search records"
@@ -86,9 +86,8 @@ function loadDataTable() {
             }
 
         ],
-
-        "paging": false, // Disable default paging
-
+        paging: false;
+ 
     });
 }
 

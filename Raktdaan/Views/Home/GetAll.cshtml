@@ -1,4 +1,6 @@
-﻿ 
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raktdaan Data Table</title>
@@ -19,11 +21,11 @@
             float: right;
         }
     </style>
- 
+</head>
+<body>
     <div class="container p-3">
         <div class="row pt-4">
-         
-                <div class="col-lg-3 mb-3">
+                 <div class="col-lg-3 mb-3">
                     <label for="bloodGroupFilter" class="form-label">Blood Group</label>
                     <select id="bloodGroupFilter" class="form-select">
                         <option value="">All Blood Groups</option>
@@ -41,7 +43,7 @@
                     <label for="stateFilter" class="form-label">State</label>
                     <input type="text" id="stateFilter" class="form-control" placeholder="Search State">
                 </div>
-            <div class="col-lg-3 mb-3">
+                <div class="col-lg-3  mb-3">
                     <label for="cityFilter" class="form-label">City</label>
                     <input type="text" id="cityFilter" class="form-control" placeholder="Search City">
                 </div>
@@ -49,10 +51,9 @@
                     <label for="countryFilter" class="form-label">Country</label>
                     <input type="text" id="countryFilter" class="form-control" placeholder="Search Country">
                 </div>
-                <button id="applyFiltersBtn" class="btn  btn-primary ">Apply Filters</button>
             </div>
-        
-        <div class="row">
+        <button id="applyFiltersBtn" class="btn btn-primary ">Apply Filters</button>
+         <div class="row">
             <div class="col-12">
                 <table id="myTable" class="table table-bordered table-striped table-hover nowrap dataTable no-footer dtr-inline" style="width:100%">
                     <thead>
@@ -73,4 +74,74 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="//cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
- 
+    <script>
+        var dataTable;
+        $(document).ready(function () {
+            // Load the DataTable initially without any filters
+            loadDataTable();
+
+            // Event listener for the "Apply Filters" button
+            $('#applyFiltersBtn').on('click', applyFilters);
+        });
+
+        function loadDataTable() {
+            dataTable = $('#myTable').DataTable({
+                "ajax": {
+                    "url": "/Home/GetAll",
+                    "dataSrc": ""
+                },
+                dom: 'Bfrtip', // Remove 'l' for the length option
+                language: {
+                    search: '_INPUT_',
+                    searchPlaceholder: "Search records"
+                },
+                "columns": [
+                    { "data": "full_Name" },
+                    { "data": "blood_group" },
+                    { "data": "city" },
+                    { "data": "state" },
+                    { "data": "country" },
+                    {
+                        "data": "id",
+                        "render": function (data) {
+                            return `
+                                    <div>
+                                        <a class="btn btn-danger btn-sm" href="/home/donar_details?id=${data}">Get Details</a>
+                                    </div>
+                                `;
+                        },
+                    }
+                ],
+                "paging": true, // Enable default paging
+                "searching": true, // Enable global search
+                "info": true, // Enable table information
+                "order": [], // Disable initial sorting
+                "initComplete": function () {
+                    // Hide table data initially
+                    $('#myTable').parent().hide();
+                }
+            });
+        }
+
+        function applyFilters() {
+            var bloodGroup = $('#bloodGroupFilter').val();
+            var state = $('#stateFilter').val().trim();
+            var city = $('#cityFilter').val().trim();
+            var country = $('#countryFilter').val().trim();
+
+            // Apply the selected filters
+            dataTable.column(1).search(bloodGroup);
+            dataTable.column(3).search(state);
+            dataTable.column(2).search(city);
+            dataTable.column(4).search(country).draw();
+
+            // Show table data if any filter is applied
+            if (bloodGroup || state || city || country) {
+                $('#myTable').parent().show();
+            } else {
+                $('#myTable').parent().hide();
+            }
+        }
+    </script>
+</body>
+</html>
