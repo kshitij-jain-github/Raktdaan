@@ -15,7 +15,17 @@ body {
    
     padding-bottom: 5rem;
 }
- 
+h1, h2, h3, h4, h5, h6 {
+    color: #630000;
+}
+.hero-img {
+    border: 2px solid #630000;
+    height:350px;
+     z-index:-1;
+}
+.hero-text {
+    border: 2px solid #630000;
+}
  .text-danger {
     color: #630000;
 }
