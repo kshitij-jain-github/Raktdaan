@@ -15,9 +15,7 @@ body {
    
     padding-bottom: 5rem;
 }
-h1, h2, h3, h4, h5, h6 {
-    color: #630000;
-}
+ 
 .hero-img {
     border: 2px solid #630000;
     height:350px;
@@ -26,9 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-text {
     border: 2px solid #630000;
 }
- .text-danger {
-    color: #630000;
-}
+ 
 .btn-danger {
     background-color: #630000;
     color: #EEEBDD;
@@ -66,9 +62,9 @@ html {
 
 }
 
-.nav-link {
-    color: #630000
-}
+ 
+
+/*Section About*/
 
 img {
     display: block;
@@ -290,742 +286,24 @@ img {
     outline: 0;
 }
 
- 
+/*Section ABout End*/
 
 
 
 
-@charset "UTF-8";
 
-.text--uppercase {
-    text-transform: uppercase;
-}
 
-.display--block {
-    display: block;
-}
 
-.text--vertical {
-    -webkit-writing-mode: vertical-rl;
-    /* -ms-writing-mode: tb-rl; */
-    writing-mode: vertical-rl;
-}
 
-.text--capitalize-first:first-letter {
-    color: #000;
-    float: left;
-    font-size: 3.75rem;
-    font-weight: bold;
-    line-height: 50px;
-    padding-right: 8px;
-    padding-left: 3px;
-    text-shadow: 3px 0 0px #fbb03b;
-}
-
-.text_shadow--hot {
-    text-shadow: 3px 0 0px #fbb03b;
-}
-
-.text_shadow--cold {
-    text-shadow: 3px 0 0px #82d1ff;
-}
-
- 
-    body .news-page {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-content: flex-start;
-        margin: 0 auto;
-         min-height: 100vh;
-           padding-bottom: 0.5rem;
-    }
-
-        body .news-page .publisher {
-            border-top: 3px solid #000;
-             min-height: 55px;
-            position: relative;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
-            font-size:14px;
-        }
-
-            body .news-page .publisher::before, body .news-page .publisher::after {
-                content: "";
-                height: 1px;
-                flex-basis: 100%;
-                background: #000;
-                margin-top: 2px;
-            }
-
-            body .news-page .publisher::after {
-                align-self: flex-end;
-                margin-top: 0;
-                margin-bottom: 2px;
-                position: absolute;
-                bottom: 0px;
-                left: 0;
-                right: 0;
-            }
- 
-
-                 
-
-            body .news-page .publisher .publisher_name {
-                flex: 4;
-                margin-top: -35px;
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                align-self: center;
-            }
-
-                body .news-page .publisher .publisher_name img {
-                    margin: 0 auto;
-                    max-width: 100%;
-                }
-
-                body .news-page .publisher .publisher_name .tagline {
-                    font-weight: bold;
-                    position: relative;
-                    margin-top: 5px;
-                    margin-bottom: 0.5rem;
-                }
-
-                    body .news-page .publisher .publisher_name .tagline::before, body .news-page .publisher .publisher_name .tagline::after {
-                        content: "*";
-                        margin-right: 5px;
-                        margin-left: 5px;
-                    }
-
-        body .news-page .exclusive-story {
-            display: flex;
-            flex-direction: row;
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        body .news-page .exclusive-story__marker {
-            flex: 1;
-            background: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            text-transform: uppercase;
-            color: #fff;
-            font-size: 2rem;
-            font-weight: 700;
-            padding: 0 1rem;
-        }
-
-        body .news-page .exclusive-story__preview {
-            flex: 4;
-            border: 1px solid #000;
-            display: flex;
-        }
-
-            body .news-page .exclusive-story__preview .preview-title {
-                flex: 1;
-                align-self: center;
-                font-size: 1.75rem;
-                padding: 0.2rem;
-                font-weight: bold;
-                margin-right: 5px;
-            }
-
-            body .news-page .exclusive-story__preview .preview-content-wrapper {
-                flex: 2;
-                flex-direction: column;
-                display: flex;
-            }
-
-            body .news-page .exclusive-story__preview .preview-content {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                padding: 0.25rem;
-            }
-
-            body .news-page .exclusive-story__preview .preview-content--left, body .news-page .exclusive-story__preview .preview-content--right {
-                flex: 1;
-                font-style: italic;
-                font-size: 0.85rem;
-                padding-right: 0.25rem;
-            }
-
-            body .news-page .exclusive-story__preview .preview-content--left {
-                margin-right: 1rem;
-            }
-
-            body .news-page .exclusive-story__preview .preview-content--link {
-                text-align: right;
-                background: #000;
-                color: #fff;
-                padding: 1px 0.25rem;
-                font-weight: 700;
-                font-size: 0.85rem;
-                margin-top: 3px;
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-                flex-grow: 1;
-            }
-
-        body .news-page .stories {
-            border: 1px solid #000;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: column;
-        }
-
-            body .news-page .stories .story {
-                display: flex;
-            }
-
-                body .news-page .stories .story.story--main {
-                    flex-wrap: wrap;
-                }
-
-                body .news-page .stories .story .column {
-                    padding: 0 0.5rem;
-                }
-
-                body .news-page .stories .story .column--left {
-                    flex: 3;
-                }
-
-                body .news-page .stories .story .column--right {
-                    flex: 1;
-                }
-
-                body .news-page .stories .story .column .story-title {
-                    display: flex;
-                    flex-wrap: wrap;
-                    text-transform: uppercase;
-                    flex-direction: column;
-                }
-
-                body .news-page .stories .story .column .story-title--first-line {
-                    display: flex;
-                }
-
-                body .news-page .stories .story .column .story-title .title-text.text--vertical {
-                    -webkit-transform: rotate(-180deg);
-                    -ms-transform: rotate(-180deg);
-                    transform: rotate(-180deg);
-                    align-self: center;
-                    font-size: 0.5rem;
-                }
-
-                body .news-page .stories .story .column .story-title .title-text.text--normal {
-                    letter-spacing: -5px;
-                    font-size: 4.75rem;
-                }
-
-                body .news-page .stories .story .column .paragraph {
-                    font-size: 0.9rem;
-                    flex-wrap: wrap;
-                }
-
-                    body .news-page .stories .story .column .paragraph p:not(.text--capitalize-first) {
-                        text-indent: 1rem;
-                    }
-
-                    body .news-page .stories .story .column .paragraph.first {
-                        font-weight: 700;
-                    }
-
-                        body .news-page .stories .story .column .paragraph.first p {
-                            text-indent: 0;
-                        }
-
-                body .news-page .stories .story .column .story-content {
-                    display: flex;
-                    flex-wrap: wrap;
-                }
-
-                    body .news-page .stories .story .column .story-content .story-column.column--first {
-                        flex: 1;
-                        margin-right: 10px;
-                    }
-
-                    body .news-page .stories .story .column .story-content .story-column.column--second-third {
-                        flex: 2;
-                    }
-
-                    body .news-page .stories .story .column .story-content .story-column .story-featured-photo {
-                        margin-bottom: 0.5rem;
-                    }
-
-                    body .news-page .stories .story .column .story-content .story-column .blockquote-wrapper .blockquote-title {
-                        display: flex;
-                        border-top: 3px solid #000;
-                        border-bottom: 3px solid #000;
-                        position: relative;
-                        display: flex;
-                        flex-wrap: wrap;
-                        text-transform: uppercase;
-                    }
-
-                        body .news-page .stories .story .column .story-content .story-column .blockquote-wrapper .blockquote-title::before, body .news-page .stories .story .column .story-content .story-column .blockquote-wrapper .blockquote-title::after {
-                            content: "";
-                            height: 1px;
-                            flex-basis: 100%;
-                            background: #000;
-                            margin-top: 2px;
-                        }
-
-                        body .news-page .stories .story .column .story-content .story-column .blockquote-wrapper .blockquote-title::after {
-                            align-self: flex-end;
-                            margin-top: 0;
-                            margin-bottom: 2px;
-                        }
-
-                        body .news-page .stories .story .column .story-content .story-column .blockquote-wrapper .blockquote-title .text--superscript {
-                            background: #000;
-                            color: #fff;
-                            padding: 0 0.5rem;
-                            font-size: 0.75rem;
-                            display: flex;
-                            align-self: flex-start;
-                            align-items: center;
-                            justify-content: center;
-                            flex: 1;
-                        }
-
-                        body .news-page .stories .story .column .story-content .story-column .blockquote-wrapper .blockquote-title .text--normal {
-                            font-size: 2rem;
-                            flex: 4;
-                            display: flex;
-                            justify-content: center;
-                        }
-
-                    body .news-page .stories .story .column .story-content .story-column .blockquote-wrapper .blockquote-content {
-                        font-style: italic;
-                        padding: 0.5rem 0.5rem;
-                        font-weight: bold;
-                        position: relative;
-                        padding-left: 1.5rem;
-                    }
-
-                        body .news-page .stories .story .column .story-content .story-column .blockquote-wrapper .blockquote-content::before {
-                            content: "“";
-                            position: absolute;
-                            left: 5px;
-                            top: 5px;
-                            font-size: 1.5rem;
-                        }
-
-                    body .news-page .stories .story .column .story-content .story-column .columns-wrapper {
-                        display: flex;
-                        flex-direction: row;
-                    }
-
-                        body .news-page .stories .story .column .story-content .story-column .columns-wrapper .column {
-                            flex: 1;
-                        }
-
-                            body .news-page .stories .story .column .story-content .story-column .columns-wrapper .column.first {
-                                margin-right: 10px;
-                            }
-
-                body .news-page .stories .story .column--right {
-                    flex: 1;
-                    padding: 0.1rem 0.1rem;
-                }
-
-                    body .news-page .stories .story .column--right .author {
-                        background: #000;
-                        color: #fff;
-                        text-align: center;
-                        padding: 0.2rem 0.5rem;
-                        position: relative;
-                    }
-
-                        body .news-page .stories .story .column--right .author::after {
-                            content: "";
-                            height: 1px;
-                            background: #000;
-                            position: absolute;
-                            bottom: -3px;
-                            left: 0;
-                            right: 0;
-                        }
-
-                        body .news-page .stories .story .column--right .author .name {
-                            text-transform: uppercase;
-                            font-weight: bold;
-                            font-size: 1.75rem;
-                        }
-
-                        body .news-page .stories .story .column--right .author .footnote {
-                            font-style: italic;
-                            opacity: 0.85;
-                            font-size: 0.75rem;
-                        }
-
-                    body .news-page .stories .story .column--right .paragraph {
-                        padding: 0 0.5rem;
-                    }
-
-            body .news-page .stories .story-divider {
-                height: 1px;
-                background: #000;
-                flex-basis: 100%;
-                margin: 0 0.5rem;
-            }
-
-            body .news-page .stories .story--secondary {
-                margin-top: 0.5rem;
-                margin-bottom: 0.5rem;
-            }
-
-                body .news-page .stories .story--secondary .columns-wrapper {
-                    display: flex;
-                    flex: 1;
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                }
-
-                body .news-page .stories .story--secondary .column {
-                    flex: 1;
-                }
-
-                    body .news-page .stories .story--secondary .column.first {
-                        border-right: 1px solid #000;
-                        flex: 1;
-                    }
-
-                    body .news-page .stories .story--secondary .column.second {
-                        padding: 0.5rem;
-                    }
-
-                body .news-page .stories .story--secondary .story-title--secondary {
-                    text-transform: uppercase;
-                    font-size: 1.45rem;
-                    margin-bottom: 0;
-                    text-align: justify;
-                    font-weight: 700;
-                    margin-top: 2px;
-                }
-
-                body .news-page .stories .story--secondary .story-featured-photo {
-                    overflow: hidden;
-                }
-
-                    body .news-page .stories .story--secondary .story-featured-photo img {
-                        object-fit: cover;
-                        width: 100%;
-                        height: 300px;
-                        padding:1em;
-                     }
-
-                body .news-page .stories .story--secondary .caption {
-                    display: flex;
-                    flex-direction: row;
-                    padding: 0.25rem 0;
-                }
-
-                body .news-page .stories .story--secondary .caption_content {
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    margin-right: 10px;
-                }
-
-                body .news-page .stories .story--secondary .caption .page-number {
-                    flex: 1;
-                    display: flex;
-                    text-align: right;
-                    background: #000;
-                    color: #fff;
-                    text-transform: uppercase;
-                    font-weight: 700;
-                    font-size: 0.75rem;
-                    align-items: center;
-                    justify-content: flex-end;
-                    padding: 0 0.2rem;
-                }
-
-                body .news-page .stories .story--secondary .story-title--third {
-                    display: flex;
-                    flex-direction: row;
-                }
-
-                    body .news-page .stories .story--secondary .story-title--third .first-part {
-                        flex: 1;
-                        text-transform: uppercase;
-                        font-size: 3.5rem;
-                        font-weight: bold;
-                        letter-spacing: -3px;
-                        margin-right: 15px;
-                    }
-
-                        body .news-page .stories .story--secondary .story-title--third .first-part small {
-                            font-weight: normal;
-                            display: block;
-                            font-size: 1rem;
-                            letter-spacing: normal;
-                        }
-
-                    body .news-page .stories .story--secondary .story-title--third .second-part {
-                        flex: 1;
-                        font-size: 2rem;
-                        font-weight: bold;
-                        text-transform: uppercase;
-                    }
-
-                        body .news-page .stories .story--secondary .story-title--third .second-part small {
-                            display: block;
-                            font-weight: bold;
-                            font-size: 0.85rem;
-                            text-transform: none;
-                        }
-
-                body .news-page .stories .story--secondary .story-content--third img {
-                    border-radius: 100%;
-                    float: left;
-                    margin-right: 20px;
-                }
-
-    body .news-page_section.weather {
-        margin-top: 1rem;
-    }
-
-        body .news-page_section.weather .section-divider {
-            position: relative;
-            text-align: center;
-            height: 3px;
-            background: #000;
-            margin-bottom: 1rem;
-        }
-
-            body .news-page_section.weather .section-divider::before {
-                content: "";
-                height: 1px;
-                background: #000;
-                margin-top: 5px;
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 0;
-            }
-
-            body .news-page_section.weather .section-divider::after {
-                content: "Weather";
-                position: absolute;
-                top: -5px;
-                left: 0;
-                right: 0;
-                background: #fff8ed;
-                padding: 0rem 0.5rem;
-                text-transform: uppercase;
-                margin: 0 auto;
-                width: fit-content;
-                font-weight: 700;
-                font-size: 0.8rem;
-            }
-
-        body .news-page_section.weather .column--weathers {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-
-            body .news-page_section.weather .column--weathers .column--weather {
-                flex: 1;
-                text-align: center;
-                margin-left: 8px;
-                margin-right: 8px;
-            }
-
-                body .news-page_section.weather .column--weathers .column--weather::first-of-type {
-                    margin-left: 0;
-                }
-
-                body .news-page_section.weather .column--weathers .column--weather::last-of-type {
-                    margin-right: 0;
-                }
-
-                body .news-page_section.weather .column--weathers .column--weather .weather_value {
-                    font-size: 3rem;
-                    position: relative;
-                    display: inline;
-                    font-weight: bold;
-                }
-
-                    body .news-page_section.weather .column--weathers .column--weather .weather_value .weater_value_measurement {
-                        position: absolute;
-                        top: 0.5rem;
-                        right: -1rem;
-                        font-size: 0.75rem;
-                    }
-
-                body .news-page_section.weather .column--weathers .column--weather .weather_city {
-                    text-transform: uppercase;
-                    font-weight: bold;
-                    border-top: 1px solid #000;
-                    border-bottom: 1px solid #000;
-                    padding: 0.3rem 0;
-                }
-
-    body .news-page_section.story--footer {
-        display: flex;
-        flex: 1;
-        flex-direction: row;
-        border-top: 3px solid #000;
-        border-bottom: 3px solid #000;
-        min-height: 80px;
-        background: #fff;
-        position: relative;
-    }
-
-        body .news-page_section.story--footer .story-title--footer {
-            text-transform: uppercase;
-            font-size: 2.75rem;
-            font-weight: bold;
-            background: #000;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            padding: 0 1rem;
-            padding-right: 3rem;
-        }
-
-        body .news-page_section.story--footer .story_excerpt_and_number {
-            display: flex;
-            flex-direction: row;
-            position: relative;
-            flex: 2;
-            padding-left: 5em;
-        }
-
-        body .news-page_section.story--footer .story_excerpt {
-            display: flex;
-            align-items: center;
-            align-content: center;
-            flex-wrap: wrap;
-            font-weight: bold;
-        }
-
-            body .news-page_section.story--footer .story_excerpt div {
-                flex-basis: 100%;
-                text-align: left;
-            }
-
-                body .news-page_section.story--footer .story_excerpt div:first-of-type {
-                    text-transform: uppercase;
-                    font-size: 1.5rem;
-                }
-
-        body .news-page_section.story--footer .story_page_number {
-            border-radius: 100%;
-            border: 2px solid #000;
-            min-width: 90px;
-            min-height: 90px;
-            max-width: 90px;
-            max-height: 90px;
-            display: flex;
-            align-self: center;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            background: #fff;
-            position: absolute;
-            left: -30px;
-            top: -7px;
-        }
-
-            body .news-page_section.story--footer .story_page_number::before {
-                content: "";
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                margin-right: -50%;
-                transform: translate(-50%, -50%);
-                border: 1px solid #000;
-                border-radius: 100%;
-                width: 96%;
-                height: 96%;
-            }
-
-            body .news-page_section.story--footer .story_page_number .number {
-                font-size: 3rem;
-                font-weight: bold;
-                margin-top: -10px;
-            }
-
-    body .news-page_section.news-topics {
-        padding: 0.5rem 0.75rem;
-        border: 2px solid #000;
-        margin: 0.5rem 0;
-    }
-
-        body .news-page_section.news-topics .columns-wrapper {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-
-        body .news-page_section.news-topics .column_topic {
-            display: flex;
-            flex: 1;
-            flex-direction: row;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 0.8rem;
-            margin-left: 5px;
-            margin-right: 5px;
-        }
-
-            body .news-page_section.news-topics .column_topic::first-of-type {
-                margin-left: 0;
-            }
-
-            body .news-page_section.news-topics .column_topic::last-of-type {
-                margin-right: 0;
-            }
-
-            body .news-page_section.news-topics .column_topic .topic {
-                display: flex;
-                align-items: center;
-                margin-right: 1rem;
-            }
-
-            body .news-page_section.news-topics .column_topic .badge_number {
-                width: 20px;
-                height: 20px;
-                background: #000;
-                color: #fff;
-                border-radius: 100%;
-                text-align: center;
-                font-size: 0.75rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-
-
-
-
-
-
-
-
-
-
+/* section FAQs */
 
 .accordion .accordion-item {
-    border-bottom: 1px solid #e5e5e5;
-    padding:.5% 5%
+    border-bottom: 2px solid #e5e5e5;
+    padding: .5% 5%
 }
 
     .accordion .accordion-item button[aria-expanded=true] {
-        border-bottom: 1px solid #03b5d2;
+        border-bottom: 2px solid #630000;
     }
 
 .accordion button {
@@ -1034,7 +312,7 @@ img {
     text-align: left;
     width: 100%;
     padding: 1em 0;
-    color: #7288a2;
+    color: #d20303;
     font-size: 1.15rem;
     font-weight: 400;
     border: none;
@@ -1042,15 +320,15 @@ img {
     outline: none;
 }
 
-    .accordion button:hover, .accordion button:focus {
+    .accordion button:hover {
         cursor: pointer;
-        color: #03b5d2;
+        color: #630000;
     }
 
         .accordion button:hover::after, .accordion button:focus::after {
             cursor: pointer;
-            color: #03b5d2;
-            border: 1px solid #03b5d2;
+            color: #630000;
+            border: 1px solid #630000;
         }
 
     .accordion button .accordion-title {
@@ -1091,7 +369,7 @@ img {
         }
 
     .accordion button[aria-expanded=true] {
-        color: #03b5d2;
+        color: #d20303;
     }
 
         .accordion button[aria-expanded=true] .icon::after {
@@ -1119,7 +397,7 @@ img {
         margin: 2em 0;
     }
 
-
+/*end section faq*/
 
 
 
