@@ -28,6 +28,10 @@ namespace Raktdaan.Controllers
         {
             return View();
         }
+        public IActionResult Myths()
+        {
+            return View();
+        }
 
         public IActionResult FindDonar()
         {

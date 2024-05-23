@@ -12,11 +12,25 @@ body {
     font-family: "DM Sans", sans-serif;
     font-size: 1rem;
     line-height: 1.5;
-    background-color: white;
-    color: #484847;
+   
     padding-bottom: 5rem;
 }
  
+ .text-danger {
+    color: #630000;
+}
+.btn-danger {
+    background-color: #630000;
+    color: #EEEBDD;
+    box-shadow:none;
+}
+ 
+.btn-outline-danger {
+   border-color: #630000;
+    color: #EEEBDD;
+    box-shadow: none;
+}
+
 @media (min-width: 768px) {
     html {
         font-size: 16px;
@@ -1094,3 +1108,16 @@ img {
         font-weight: 300;
         margin: 2em 0;
     }
+
+
+
+
+
+
+
+
+
+
+
+ 
+  
