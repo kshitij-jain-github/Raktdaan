@@ -1,26 +1,25 @@
-﻿@model ApplicationUser
-
-<h2>Donor Details</h2>
-
-<div>
-    <h4>@Model.Full_Name</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">Blood Group</dt>
-        <dd class="col-sm-10">@Model.Blood_group</dd>
-
-        <dt class="col-sm-2">City</dt>
-        <dd class="col-sm-10">@Model.City</dd>
-
-        <dt class="col-sm-2">State</dt>
-        <dd class="col-sm-10">@Model.State</dd>
-
-        <dt class="col-sm-2">Country</dt>
-        <dd class="col-sm-10">@Model.Country</dd>
-
-        <dt class="col-sm-2">Phone Number</dt>
-        <dd class="col-sm-10">@Model.PhoneNumber</dd>
-    </dl>
-    <a href="@Url.Action("FindDonar", "Home")" class="btn btn-secondary">Back to List</a>
+﻿<div class="container my-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-body d-flex justify-content-center align-items-center">
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg" class="rounded-circle img-fluid me-4" style="width: 150px;">
+                    <div class="text-center">
+                        <h4 class="card-title mb-2">@Model.Full_Name</h4>
+                        <p class="card-text mb-2">Blood Group: @Model.Blood_group</p>
+                        <p class="mb-2"><i class="fas fa-map-marker-alt fa-fw"></i> @Model.City, @Model.State, @Model.Country</p>
+                        <p class="mb-4"><i class="fas fa-phone fa-fw"></i> @Model.PhoneNumber</p>
+                        <a href="@Url.Action("FindDonar", "Home")" class="btn btn-primary">Back to List</a>
+                    </div>
+                </div>
+                <div class="card-footer text-muted text-center">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="disclaimer">Disclaimer: The details provided are only for blood donation purposes. Please do not misuse this information.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-

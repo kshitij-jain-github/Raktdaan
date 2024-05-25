@@ -1,82 +1,58 @@
-﻿
-
-
-
-
-
-<div class="container p-3">
-    <div class="row pt-4">
-        <div class="col-6">
-            <h2 class="text-primary">User List</h2>
-		</div>
-        <div class="col-6 text-end">
-            <a asp-controller="home" asp-action="index" class="btn btn-primary">
-               <i class="bi bi-plus-circle"></i>Go Home
-			</a>
-		</div>
-	</div>
-    <br /><br />
-
-<table  id="tblData"  class="table table-bordered table-striped" style="width:100%">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>ISBN</th>
-            <th>Price</th>
-            <th>Author</th>
-            <th>Category</th>es
-            <th></th>
-		</tr>
-	</thead>
-</table>
-</div>
-
-@section Scripts{
-    <script src="~/js/user.js"></script>
-}
-
-
-
-@*  
-     
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raktdaan Data Table</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
-    
- 
- 
+    <style>
+        .input-group-text {
+            background-color: white;
+            border: 1px solid #ced4da;
+        }
+
+        .dataTables_wrapper .dataTables_filter {
+            float: right;
+        }
+
+        .dataTables_wrapper .dataTables_paginate {
+            float: right;
+        }
+    </style>
+</head>
+<body>
     <div class="container p-3">
         <div class="row pt-4">
-            <div class="col-12">
-                <div class="mb-3">
-                    <label for="bloodGroupFilter" class="form-label">Blood Group</label>
-                    <select id="bloodGroupFilter" class="form-select">
-                        <option value="">All Blood Groups</option>
-                        <option value="A+">A+</option>
-                        <option value="A-">A-</option>
-                        <option value="B+">B+</option>
-                        <option value="B-">B-</option>
-                        <option value="AB+">AB+</option>
-                        <option value="AB-">AB-</option>
-                        <option value="O+">O+</option>
-                        <option value="O-">O-</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="stateFilter" class="form-label">State</label>
-                    <input type="text" id="stateFilter" class="form-control" placeholder="Search State">
-                </div>
-                <div class="mb-3">
-                    <label for="cityFilter" class="form-label">City</label>
-                    <input type="text" id="cityFilter" class="form-control" placeholder="Search City">
-                </div>
-                <div class="mb-3">
-                    <label for="countryFilter" class="form-label">Country</label>
-                    <input type="text" id="countryFilter" class="form-control" placeholder="Search Country">
-                </div>
-                <button id="applyFiltersBtn" class="btn btn-primary">Apply Filaters</button>
+            <div class="col-lg-3 mb-3">
+                <label for="bloodGroupFilter" class="form-label">Blood Group</label>
+                <select id="bloodGroupFilter" class="form-select">
+                    <option value="">All Blood Groups</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+            </div>
+            <div class="col-lg-3 mb-3">
+                <label for="stateFilter" class="form-label">State</label>
+                <input type="text" id="stateFilter" class="form-control" placeholder="Search State">
+            </div>
+            <div class="col-lg-3 mb-3">
+                <label for="cityFilter" class="form-label">City</label>
+                <input type="text" id="cityFilter" class="form-control" placeholder="Search City">
+            </div>
+            <div class="col-lg-3 mb-3">
+                <label for="countryFilter" class="form-label">Country</label>
+                <input type="text" id="countryFilter" class="form-control" placeholder="Search Country">
             </div>
         </div>
-        <div class="row">
+        <button id="applyFiltersBtn" class="btn btn-primary">Apply Filters</button>
+        <div class="row mt-3">
             <div class="col-12">
                 <table id="myTable" class="table table-bordered table-striped table-hover nowrap" style="width:100%">
                     <thead>
@@ -89,10 +65,6 @@
                             <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody>
-                       
-                    </tbody>
-                  
                 </table>
             </div>
         </div>
@@ -101,26 +73,24 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-     <script>
+    <script>
         var dataTable;
         $(document).ready(function () {
-            // Initialize the DataTable with an empty dataset
             dataTable = $('#myTable').DataTable({
-                data: [],
+                ajax: {
+                    url: '/Home/GetAll',
+                    dataSrc: 'data'
+                },
                 columns: [
-                    { data: "full_Name" },
-                    { data: "blood_group" },
-                    { data: "city" },
-                    { data: "state" },
-                    { data: "country" },
+                    { data: 'full_Name' },
+                    { data: 'blood_group' },
+                    { data: 'city' },
+                    { data: 'state' },
+                    { data: 'country' },
                     {
-                        data: "id",
+                        data: 'id',
                         render: function (data) {
-                            return `
-                                    <div>
-                                        <a class="btn btn-danger btn-sm" href="/home/donar_details?id=${data}">Get Details</a>
-                                    </div>
-                                `;
+                            return `<div><a class="btn btn-danger btn-sm" href="/home/donar_details?id=${data}">Get Details</a></div>`;
                         }
                     }
                 ],
@@ -130,7 +100,6 @@
                 order: []
             });
 
-            // Event listener for the "Apply Filters" button
             $('#applyFiltersBtn').on('click', function () {
                 applyFilters();
             });
@@ -152,12 +121,13 @@
                     country: country
                 },
                 success: function (data) {
-                    // Clear the table and add new data
-                    dataTable.clear().rows.add(data).draw();
+                    dataTable.clear().rows.add(data.data).draw();
                 },
                 error: function (xhr, status, error) {
                     console.error("Error fetching data: ", error);
                 }
             });
         }
-    </script>  *@
+    </script>
+</body>
+</html>

@@ -1,6 +1,73 @@
 ﻿
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+
+<h1 class="text-center mt-4"> Find Blood Donar Near You!</h1>
+
 <partial name="GetAll" />
 
 @section Scripts {
-     <script src="~/js/user.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script>
+        var dataTable;
+        $(document).ready(function () {
+            dataTable = $('#myTable').DataTable({
+                ajax: {
+                    url: '/Home/GetAll',
+                    dataSrc: 'data'
+                },
+                columns: [
+                    { data: 'full_Name' },
+                    { data: 'blood_group' },
+                    { data: 'city' },
+                    { data: 'state' },
+                    { data: 'country' },
+                    {
+                        data: 'id',
+                        render: function (data) {
+                            return `<div><a class="btn btn-danger btn-sm" href="/home/donar_details?id=${data}">Get Details</a></div>`;
+                        }
+                    }
+                ],
+                paging: true,
+                searching: true,
+                info: true,
+                order: []
+            });
+
+            $('#applyFiltersBtn').on('click', function () {
+                applyFilters();
+            });
+        });
+
+        function applyFilters() {
+            var bloodGroup = $('#bloodGroupFilter').val();
+            var state = $('#stateFilter').val().trim();
+            var city = $('#cityFilter').val().trim();
+            var country = $('#countryFilter').val().trim();
+
+            $.ajax({
+                url: "/Home/GetAll",
+                method: "GET",
+                data: {
+                    bloodGroup: bloodGroup,
+                    state: state,
+                    city: city,
+                    country: country
+                },
+                success: function (data) {
+                    dataTable.clear().rows.add(data.data).draw();
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error fetching data: ", error);
+                }
+            });
+        }
+    </script>
+ 
+
 }

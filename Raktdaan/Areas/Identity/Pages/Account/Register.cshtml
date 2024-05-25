@@ -3,206 +3,175 @@
 @{
     ViewData["Title"] = "Register";
 }
-<div class="form-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-offset-3 col-md-6">
-                <div class="form-container">
-                    <h3 class="title">Register</h3>
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label>User Name</label>
-                            <input type="text" class="form-control" placeholder="User Name">
-                        </div>
-                        <div class="form-group">
-                            <label>Email ID</label>
-                            <input type="email" class="form-control" placeholder="Email Address">
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" class="form-control" placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <label>Confirm Password</label>
-                            <input type="password" class="form-control" placeholder="Confirm Password">
-                        </div>
-                        <h4 class="sub-title">Personal Information</h4>
-                        <div class="form-group">
-                            <label>Phone No.</label>
-                            <input type="text" class="form-control" placeholder="Phone Number">
-                        </div>
-                        <div class="form-group">
-                            <label>City</label>
-                            <select class="form-control">
-                                <option value="paris">Paris</option>
-                                <option value="new york">New York</option>
-                            </select>
-                        </div>
-                        <div class="check-terms">
-                            <input type="checkbox" class="checkbox">
-                            <span class="check-label">I agree to the terms</span>
-                        </div>
-                        <span class="signin-link">Already have an account? Click here to <a href="">Login</a></span>
-                        <button class="btn signup">Create Account</button>
-                    </form>
-                </div>
+
+<section class="vh-100"  >
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class=" "  >
+          <div class=" ">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-8   order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+
+                <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                                <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                                    <input asp-for="Input.Full_Name" type="text" id="form3Example1c" class="form-control" />
+                                                    <label asp-for="Input.Full_Name" class="form-label" for="form3Example1c">Your Name</label>
+                                                </div>
+
+                                            </div>
+                                                <span asp-validation-for="Input.Full_Name" class="text-danger"></span>
+
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                                <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                                    <input asp-for="Input.Email"  type="email" id="form3Example3c" class="form-control" />
+                                                    <label asp-for="Input.Email" class="form-label" for="form3Example3c"> Email</label>
+                                                </div>
+
+                                            </div>
+                                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fas fa-city fa-lg me-3 fa-fw"></i>
+                                                <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                                    <input asp-for="Input.City" type="text" id="form3Example4c" class="form-control" />
+                                                    <label asp-for="Input.City" class="form-label" for="form3Example4c">City</label>
+                                                </div>                                          
+
+                                            </div>
+                                                <span asp-validation-for="Input.City" class="text-danger"></span>
+
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fas fa-flag fa-lg me-3 fa-fw"></i>
+                                                <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                                    <input asp-for ="Input.Country" type="text" id="form3Example4cd" class="form-control" />
+                                                    <label asp-for="Input.Country"  class="form-label" for="form3Example4cd">Country</label>
+                                                </div>                                             
+
+                                            </div>
+                                                <span asp-validation-for="Input.Country" class="text-danger"></span>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                                <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                                    <input asp-for="Input.Password" type="password" id="form3Example4cd" class="form-control" />
+                                                    <label asp-for="Input.Password" class="form-label" for="form3Example4cd">Password</label>
+                                                </div>                                              
+
+                                            </div>
+                                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                                <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                                    <input asp-for="Input.ConfirmPassword" type="password" id="form3Example4cd" class="form-control" />
+                                                    <label asp-for="Input.ConfirmPassword" class="form-label" for="form3Example4cd">Re-enter Password</label>
+                                                </div>                                 
+
+                                            </div>
+                                                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fas fa-phone fa-lg me-3 fa-fw"></i>
+
+                                                 <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                                    <input asp-for="Input.PhoneNumber"  type="number" id="form3Example1c" class="form-control" />
+                                                    <label asp-for="Input.PhoneNumber"  class="form-label" for="form3Example1c">Phone No.</label>
+                                                </div>                                
+
+                                            </div>
+                                                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fas fa-city fa-lg me-3 fa-fw"></i>
+
+                                                 <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                                    <input asp-for="Input.Address"  type="text" id="form3Example3c" class="form-control" />
+                                                    <label asp-for="Input.Address"  class="form-label" for="form3Example3c">Address</label>
+                                                </div>                           
+
+                                            </div>
+                                                <span asp-validation-for="Input.Address" class="text-danger"></span>
+
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fas fa-city fa-lg me-3 fa-fw"></i>
+
+                                                 <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                                    <input asp-for="Input.State" type="text" id="form3Example4c" class="form-control" />
+                                                    <label asp-for="Input.State" class="form-label" for="form3Example4c">State</label>
+                                                </div>                             
+
+                                            </div>
+                                                <span asp-validation-for="Input.State" class="text-danger"></span>
+
+                                            <div class="d-flex flex-row align-items-center mb-4">
+                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+
+                                                 <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                                                    <input asp-for="Input.PostalCode"  type="number" id="form3Example4cd" class="form-control" />
+                                                    <label asp-for="Input.PostalCode" class="form-label" for="form3Example4cd"> Pin Code </label>
+                                                </div>                                  
+
+                                            </div>
+                                                <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
+                                            <div class="d-flex flex-row align-items-center mb-4">
+
+                                                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+
+                                                    <select asp-for="Input.Blood_group" id="form3Example4cd" class="select form-control ">
+                                                        <option value="">Select Blood Group</option>
+                                                        <option value="A+">A+</option>
+                                                        <option value="A-">A-</option>
+                                                        <option value="B+">B+</option>
+                                                        <option value="B-">B-</option>
+                                                        <option value="AB+">AB+</option>
+                                                        <option value="AB-">AB-</option>
+                                                        <option value="O+">O+</option>
+                                                        <option value="O-">O-</option>
+                                                    </select>
+                                                
+                                            </div>
+                                            <span asp-validation-for="Input.Full_Name" class="text-danger"></span>
+                                            <div class="form-check d-flex justify-content-center mb-5">
+                                                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                                                <label class="form-check-label" for="form2Example3">
+                                                    I agree all statements in <a asp-controller="home" asp-action="privacy">Terms of service</a>
+                                                </label>
+                                            </div>
+                                        </div>
+                    </div>
+              
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                        <button type="submit" class="btn btn-danger btn-block mt-0" data-mdb-ripple-init>Sign up</button>
+                                    </div>
+
+                </form>
+
+              </div>
+              <div class="col-md-10 col-lg-4   d-flex align-items-center order-1 order-lg-2">
+
+                                <img src="https://clipart-library.com/2023/nTBMARyrc.jpg"
+                  class="img-fluid" alt="Sample image">
+
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<div class="container shadow bg-light rounded-3" >
+  </div>
+</section>
 
-
-<h1 class="pt-4 pb-0 text-danger">@ViewData["Title"]</h1>
-    <h2 class="text-center text-danger pt-0">Create a new account.</h2>
-    <hr />
-
-
-    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" class="pb-5 m-5 mt-0" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-    <!-- 2 column grid layout with text inputs for the first and last names -->
-    <div class="row mt-4 mb-4">
-        <div class="col-lg-4">
-            <div class="form-outline" data-mdb-input-init>
-                <input asp-for="Input.Full_Name" type="text" id="form3Example1" class="form-control" />
-                <label asp-for="Input.Full_Name" class="form-label" for="form3Example1">Full Name</label>
-            </div>
-            <span asp-validation-for="Input.Full_Name" class="text-danger"></span>
-        </div>
-        <div class="col-lg-4">
-            <div class="form-outline" data-mdb-input-init>
-                <div class="form-outline" data-mdb-input-init>
-                    <input asp-for="Input.Email" type="text" id="form3Example1" class="form-control" />
-                    <label asp-for="Input.Email" class="form-label" for="form3Example1">Email</label>
-                </div>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-
-            </div>
-        </div>
-            <div class="col-lg-4">
-                <div class="form-outline" data-mdb-input-init>
-                    <input asp-for="Input.PhoneNumber" type="number" id="form3Example1" class="form-control" />
-                    <label asp-for="Input.PhoneNumber" class="form-label" for="form3Example1">Phone Number</label>
-                </div>
-                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-            </div>
-    </div>  
-    <div class="row mt-4 mb-4">
-       
-        <div class="col-lg-4">
-                <div class="form-outline" data-mdb-input-init>
-                    <select asp-for="Input.Blood_group" id="form3Example1" class="form-control">
-                        <option value="">Select Blood Group</option>
-                        <option value="A+">A+</option>
-                        <option value="A-">A-</option>
-                        <option value="B+">B+</option>
-                        <option value="B-">B-</option>
-                        <option value="AB+">AB+</option>
-                        <option value="AB-">AB-</option>
-                        <option value="O+">O+</option>
-                        <option value="O-">O-</option>
-                    </select>
-                    <label asp-for="Input.Blood_group" class="form-label" for="form3Example1">Blood Group</label>
-                    <span asp-validation-for="Input.Blood_group" class="text-danger"></span>
-                </div>
-        </div>
-            <div class="col-lg-4">
-                <div class="form-outline" data-mdb-input-init>
-                    <input asp-for="Input.Address" type="text" id="form3Example1" class="form-control" />
-                    <label asp-for="Input.Address" class="form-label" for="form3Example1">Address</label>
-                </div>
-                <span asp-validation-for="Input.Address" class="text-danger"></span>
-            </div>
-            <div class="col-lg-4">
-                <div class="form-outline" data-mdb-input-init>
-                    <input asp-for="Input.PostalCode" type="number" id="form3Example1" class="form-control" />
-                    <label asp-for="Input.PostalCode" class="form-label" for="form3Example1">Postal Code</label>
-                </div>
-                <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
-            </div>
-    </div>
-    
-    <div class="row mt-4 mb-4">
-        <div class="col-lg-4">
-            <div class="form-outline" data-mdb-input-init>
-                <input asp-for="Input.City" type="text" id="form3Example1" class="form-control" />
-                <label asp-for="Input.City" class="form-label" for="form3Example1">City</label>
-            </div>
-            <span asp-validation-for="Input.City" class="text-danger"></span>
-        </div>
-       
-        <div class="col-lg-4">
-            <div class="form-outline" data-mdb-input-init>
-                <input asp-for="Input.State" type="text" id="form3Example1" class="form-control" />
-                <label asp-for="Input.State" class="form-label" for="form3Example1">State</label>
-            </div>
-            <span asp-validation-for="Input.State" class="text-danger"></span>
-        </div>
-        <div class="col-lg-4">
-            <div class="form-outline" data-mdb-input-init>
-                <input asp-for="Input.Country" type="text" id="form3Example1" class="form-control" />
-                <label asp-for="Input.Country" class="form-label" for="form3Example1">Country</label>
-            </div>
-            <span asp-validation-for="Input.Country" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="row mt-4 mb-4">
-     
-        <div class="col-lg-6">
-            <div class="form-outline" data-mdb-input-init>
-                <input asp-for="Input.Password" type="text" id="form3Example1" class="form-control" />
-                <label asp-for="Input.Password" class="form-label" for="form3Example1">Create Password</label>
-            </div>
-            <span asp-validation-for="Input.Password" class="text-danger"></span>
-        </div>
-        <div class="col-lg-6">
-                <div class="form-outline" data-mdb-input-init>
-                    <input asp-for="Input.ConfirmPassword" type="text" id="form3Example1" class="form-control" />
-                    <label asp-for="Input.ConfirmPassword" class="form-label" for="form3Example1">Confirm Password</label>
-                </div>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-
-        </div>
-          
-    </div> 
-          
-      
-        <div class="row mt-4 mb-4">
-           
-            <div class="col-lg-6">
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-danger btn-block mt-4" data-mdb-ripple-init>Sign up</button>
-            </div>
-            <div class="col-lg-6">
-                <!-- Register buttons -->
-                <div class="text-center ">
-                    <p>or sign up with:</p>
-                    <button type="button" class="btn btn-danger btn-floating mx-1" data-mdb-ripple-init>
-                        <i class="fab fa-facebook-f"></i>
-                    </button>
-
-                    <button type="button" class="btn btn-danger btn-floating mx-1" data-mdb-ripple-init>
-                        <i class="fab fa-google"></i>
-                    </button>
-
-                    <button type="button" class="btn btn-danger btn-floating mx-1" data-mdb-ripple-init>
-                        <i class="fab fa-twitter"></i>
-                    </button>
-
-                    <button type="button" class="btn btn-danger btn-floating mx-1" data-mdb-ripple-init>
-                        <i class="fab fa-github"></i>
-                    </button>
-                </div>
-    </div>
- 
-
-   
-    </div>
-   
-</form>
-
-</div>
-@* <div class="col-md-6 col-md-offset-2">
+@* 
+  <div class="col-md-6 col-md-offset-2">
     <section>
         <h3>Use another service to register.</h3>
         <hr />
@@ -233,8 +202,8 @@
             }
         }
     </section>
-</div>
- *@
+</div> *@
+ 
  @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
