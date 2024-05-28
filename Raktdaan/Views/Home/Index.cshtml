@@ -1,26 +1,26 @@
-﻿<p class="text-center pt-2">
-    * Please note Raktdaan is not a Blood Bank and does not involve in collection , storage & transportation of blood.
-    <a asp-controller="home" asp-action="privacy">Please refer T&C for more details</a>
-</p>
+﻿
 <!-- Section: About author -->
-<section class="mt-3 mb-5">
-
+<header class=" mb-5 hero" style="">
+    <p class="text-center pt-2">
+        * Please note Raktdaan is not a Blood Bank and does not involve in collection , storage & transportation of blood.
+        <a asp-controller="home" asp-action="privacy">Please refer T&C for more details</a>
+    </p>
     <div class="container">
-        <div class="row gx-0 align-items-center">
+        <div class="row align-items-center">
 
 
           
-            <div class="col-lg-6 mb-5 mb-lg-0 shadow" data-aos="zoom-in-down">
+            <div class="col-lg-6 mb-5 mb-lg-0 " data-aos="zoom-in-down">
 
-                <div style="background: hsla(0, 0%, 100%, 0.55); backdrop-filter: blur(70px); z-index: 1;"
-                     class="card hero-text rounded shadow me-lg-n5">
-                    <div class="card-body p-lg-5">
+                <div class=" me-lg-n5">
+                    <div class=" p-lg-5">
                         <h2 class="fw-bold">
                             <span>
                                 LET'S UNITE
                                 TO SAVE LIVES
                             </span>
                         </h2>
+                 
                         <p class="fw-bold"><em>“Don't be a tourist, be a traveler”</em></p>
 
                         <p class="text-muted">
@@ -30,11 +30,13 @@
                             donation segment.
                         </p>
                         <div  >
-                            <a class="btn btn-danger m-2 btn-lg" data-mdb-ripple-init asp-controller="home" asp-action="finddonar">
-                                Find Nearby Donar
+                            <a class="btn btn-danger m-2 btn" data-mdb-ripple-init asp-controller="home" asp-action="finddonar">
+                                <b>
+                                    Find Nearby Donar
+                                </b>
                             </a>
-                            <a class="btn btn-danger m-2 btn-lg" asp-area="identity" asp-page="/account/register">
-                                Register To Donate Blood
+                            <a class="btn btn-danger m-2 btn" asp-area="identity" asp-page="/account/register">
+                                <b>Register To Donate Blood</b>
                             </a>
                         </div>
                     </div>
@@ -43,24 +45,33 @@
 
             </div>
 
-            <div class="col-lg-6 mb-5 mb-lg-0 " data-aos="zoom-in-down">
-                <img src="~/img/hero.jpeg" class="hero-img rounded shadow " alt="Author image" />
+            <div class="col-lg-6 mb-5 mb-lg-0 " >
 
+                <div class="carousel">
+                    <ul class="carousel__list">
+                        <li class="carousel__item" data-pos="-2">1</li>
+                        <li class="carousel__item" data-pos="-1">2</li>
+                        <li class="carousel__item" data-pos="0">3</li>
+                        <li class="carousel__item" data-pos="1">4</li>
+                        <li class="carousel__item" data-pos="2">5</li>
+                    </ul>
+                </div>
+ 
             </div>
         </div>
     </div>
  
     <!--  end: weather section    -->
   
-</section>
+</header>
 <!-- Section: About author -->
   
 
 
 <!--Main layout-->
 <main class="mt-2 mb-5">
-    <div class="container">
-        <h1 class="text-center mb-5">"With our blood on demand Web Application designed to connect blood donors and recipients"</h1>
+    <div class="container ">
+        <h1 class="text-center  mb-5">"With our blood on demand Web Application designed to connect blood donors and recipients"</h1>
         <!--Grid row-->
         <div class="row">
             <!--Grid column-->

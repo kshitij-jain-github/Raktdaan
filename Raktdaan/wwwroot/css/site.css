@@ -1,7 +1,4 @@
-﻿
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Fraunces:ital,wght@0,500;0,600;0,700;1,600&display=swap");
-
-*,
+﻿ *,
 *:after,
 *:before {
     box-sizing: border-box;
@@ -9,23 +6,21 @@
 }
 
 body {
-    font-family: 'Times New Roman ', serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.5;
     padding-bottom: 5rem;
+    font-family: "Georgia", serif;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    
+}
+
+.hero {
+    height: 85vh
 }
  
-.hero-img {
-    border: 2px solid #630000;
-    height:350px;
-     z-index:-1;
-}
-.hero-text {
-    border: 2px solid #630000;
-}
  
 .btn-danger {
-    background-color: #630000;
+    background-color: #dc4c64;
     color: #EEEBDD;
     box-shadow:none;
 }
@@ -51,7 +46,10 @@ html {
     min-height: 100%;
 }
  
-  
+h1,h2,h3,h4,h5,h6{
+    font-weight:800; 
+ 
+}  
 
 .dt-search {
     text-align: center;
@@ -205,6 +203,90 @@ img {
 
 
 
+.carousel {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+ }
+
+.carousel__list {
+    display: flex;
+    list-style: none;
+    position: relative;
+    width: 100%;
+    height: 300px;
+    justify-content: center;
+    perspective: 300px;
+}
+
+.carousel__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0px;
+    width: 200px;
+    height: 350px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.5);
+    position: absolute;
+    transition: all 0.3s ease-in;
+}
+
+    .carousel__item:nth-child(1) {
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJuO45hkzT0n7qhRMt1uXowiV5W4G4p-Rmo0d8-Zhl8g&s")
+    }
+
+    .carousel__item:nth-child(2) {
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxhWxCd14tE3fSUXP5Snh1QiFQXn42FMKTNrUDSreBRrsXO-WjM9w3z5zhW5hDnwzAUtQ&usqp=CAU")
+    }
+
+    .carousel__item:nth-child(3) {
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNIIlT0GlyqzlSdhrTNXdDn1uoV41hWZzGuX7rJatuUA&s");
+    }
+
+    .carousel__item:nth-child(4) {
+        background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/funny-world-blood-donor-day-childnurse-big-dreams.jpg")
+    }
+
+    .carousel__item:nth-child(5) {
+        background-image: url("https://img.etimg.com/thumb/width-1200,height-1200,imgsize-109748,resizemode-75,msid-92066562/news/india/registration-of-volunteers-for-blood-donation-would-soon-be-enabled-on-co-win.jpg")
+    }
+
+    .carousel__item[data-pos="0"] {
+        z-index: 5;
+    }
+
+    .carousel__item[data-pos="-1"], .carousel__item[data-pos="1"] {
+        opacity: 0.7;
+        filter: blur(1px) grayscale(10%);
+    }
+
+    .carousel__item[data-pos="-1"] {
+        transform: translateX(-40%) scale(0.9);
+        z-index: 4;
+    }
+
+    .carousel__item[data-pos="1"] {
+        transform: translateX(40%) scale(0.9);
+        z-index: 4;
+    }
+
+    .carousel__item[data-pos="-2"], .carousel__item[data-pos="2"] {
+        opacity: 0.4;
+        filter: blur(3px) grayscale(20%);
+    }
+
+    .carousel__item[data-pos="-2"] {
+        transform: translateX(-70%) scale(0.8);
+        z-index: 3;
+    }
+
+    .carousel__item[data-pos="2"] {
+        transform: translateX(70%) scale(0.8);
+        z-index: 3;
+    }
 
 
 
@@ -217,7 +299,7 @@ img {
 }
 
     .accordion .accordion-item button[aria-expanded=true] {
-        border-bottom: 2px solid #630000;
+        border-bottom: 2px solid #036c68;
     }
 
 .accordion button {
@@ -226,7 +308,7 @@ img {
     text-align: left;
     width: 100%;
     padding: 1em 0;
-    color: #d20303;
+    color: #d75b5b;
     font-size: 1.15rem;
     font-weight: 400;
     border: none;
@@ -236,13 +318,13 @@ img {
 
     .accordion button:hover {
         cursor: pointer;
-        color: #630000;
+        color: #dc4c64;
     }
 
         .accordion button:hover::after, .accordion button:focus::after {
             cursor: pointer;
-            color: #630000;
-            border: 1px solid #630000;
+            color: #dc4c64;
+            border: 1px solid #dc4c64;
         }
 
     .accordion button .accordion-title {
