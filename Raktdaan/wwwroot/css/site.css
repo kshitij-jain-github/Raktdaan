@@ -10,22 +10,25 @@ body {
     line-height: 1.5;
     padding-bottom: 5rem;
     font-family: "Georgia", serif;
-    background-color:#fff;
-  }
+   }
 
 .hero {
     height: 85vh
 }
 .box-shadow-design {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
- 
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #870000 0%, #190A05 51%, #870000 100%) 1;
+    background-color: #fcf0f0
 
 }
  
-.btn-danger {
+.btn-danger1 {
     background-color: #dc4c64;
     color: #EEEBDD;
     box-shadow:none;
+
 }
  
 .btn-outline-danger {
@@ -34,6 +37,28 @@ body {
     box-shadow: none;
 }
 
+.btn-danger {
+    background-image: linear-gradient(to right, #870000 0%, #190A05 51%, #870000 100%)
+}
+
+.btn-danger{ 
+     
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+    .btn-danger:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
+         
 @media (min-width: 768px) {
     html {
         font-size: 16px;
