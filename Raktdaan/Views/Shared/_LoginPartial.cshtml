@@ -11,7 +11,7 @@
     </li>
     <li class="nav-item">
         <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button id="logout" type="submit" class="nav-link btn btn-link text-danger border-0">Logout</button>
+                <button id="logout" type="submit" class="nav-link btn btn-link  text-white text-danger border-0">Logout</button>
         </form>
     </li>
 }
@@ -19,10 +19,10 @@ else
 {
    
     <li class="nav-item m-2  ">
-            <a class="nav-link  " id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            <a class="nav-link  text-white  " id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
     </li> 
         <li class="nav-item  fw-bolder  m-2  ">
-            <a class="nav-link  btn btn-sm btn-outline-danger text-danger rounded-3" id="register" asp-area="Identity" asp-page="/Account/Register">Resgiter To Donate Blood Now!</a>
+            <a class="nav-link  btn btn-sm btn-outline-danger  text-white rounded-3" id="register" asp-area="Identity" asp-page="/Account/Register">Resgiter To Donate Blood Now!</a>
         </li>
 }
 </ul>

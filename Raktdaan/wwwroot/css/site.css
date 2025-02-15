@@ -4,26 +4,98 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* For Firefox */
+html {
+    scrollbar-width: none;
+}
+
+/* For Edge & IE */
+body {
+    -ms-overflow-style: none;
+}
 
 body {
     font-size: 1rem;
     line-height: 1.5;
     padding-bottom: 5rem;
     font-family: "Georgia", serif;
-   }
-
-.hero {
-    height: 85vh
-}
-.box-shadow-design {
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
-    border-width: 2px;
-    border-style: solid;
-    border-image: linear-gradient(to right, #870000 0%, #190A05 51%, #870000 100%) 1;
-    background-color: #fcf0f0
-
+  
 }
  
+.bg {
+
+    /* The image used */
+    background-image: url( "https://img3.wallspic.com/crops/5/7/5/5/6/165575/165575-light-design-azure-orange-rectangle-6880x2880.png");
+    /* Full height */
+    height: 60vh;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+ 
+}
+
+
+.hero-container {
+    position: relative;
+    background-image: url("  ");
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    
+} 
+
+.box-shadow-design {
+    backdrop-filter: blur(100px);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    border-width: 3px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #870000 0%, #190A05 51%, #870000 100%) 1;
+ 
+   
+}
+.blob {
+    position: absolute;
+    opacity: 0.5;
+    width: 400px;
+    aspect-ratio: 1/1;
+    animation: animate 5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite alternate forwards;
+    filter: blur(40px);
+    z-index: -1;
+    background: linear-gradient( 47deg, rgba(255, 88, 139, 1) 21%, rgb(0 164 173) 67%, rgba(118, 74, 166, 1) 81% );
+    /*  Optional  */
+    /*   box-shadow: inset 50px 50px 17px 0px #ff588b,
+    inset 100px 100px 17px 0px #66319f; */
+}
+
+@keyframes animate {
+    0% {
+        translate: 40% -25%;
+        border-radius: 60% 40% 30% 70% / 100% 85% 92% 74%;
+    }
+
+    50% {
+        translate: 0% 13%;
+        border-radius: 20% 71% 47% 70% / 81% 15% 22% 54%;
+        rotate: 41deg;
+        scale: 1.15;
+    }
+
+    100% {
+        translate: -45% 39%;
+        border-radius: 100% 75% 92% 74% / 60% 80% 30% 70%;
+        rotate: -60deg;
+        scale: 1.05;
+    }
+}
+
 .btn-danger1 {
     background-color: #dc4c64;
     color: #EEEBDD;
@@ -48,7 +120,7 @@ body {
     transition: 0.5s;
     background-size: 200% auto;
     color: white;
-    box-shadow: 0 0 20px #eee;
+    box-shadow: 0 0 2px #eee;
     border-radius: 10px;
     display: block;
 }
@@ -77,8 +149,8 @@ html {
 h1,h2,h3,h4,h5,h6{
     font-weight:800; 
  
-}  
-
+ 
+} 
 .dt-search {
     text-align: center;
     margin-bottom: 10px;
