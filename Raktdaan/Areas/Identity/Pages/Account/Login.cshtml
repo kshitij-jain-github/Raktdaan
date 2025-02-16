@@ -7,12 +7,14 @@
 
  
 <section class="vh-100 mb-5 pb-0" >
-    <div class="container h-75 box-shadow-design">
+    <div class="container h-75 ">
         <div class="row text-white  d-flex justify-content-center align-items-center pt-2">
+
             <div class="col-lg-12 col-xl-11">
                  
                         <div class="row justify-content-center">
-                    <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                    <div class="col-md-10 col-lg-6 col-xl-7 pb-4  box-shadow-design ">
 
                         <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Log In</p>
 
@@ -24,7 +26,7 @@
                                 <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                 <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                     <input asp-for="Input.Email" type="email" id="form3Example3c" class="form-control" />
-                                    <label asp-for="Input.Email" class="form-label" for="form3Example3c">Your Email</label>
+                                    <label asp-for="Input.Email" class="form-label text-white" for="form3Example3c">Your Email</label>
                                 </div>
                                 <span asp-validation-for="Input.Email" class="text-danger"></span>
 
@@ -34,7 +36,7 @@
                                 <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                 <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                     <input asp-for="Input.Password" type="password" id="form3Example4c" class="form-control" />
-                                    <label asp-for="Input.Password" class="form-label" for="form3Example4c">Password</label>
+                                    <label asp-for="Input.Password" class="form-label text-white" for="form3Example4c">Password</label>
                                 </div>
                             </div>
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
@@ -55,62 +57,63 @@
                                 <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-danger">Log in</button>
                             </div>
 
+                         
                         </form>
+                        
+                            <div class="d-flex justify-content-center mx-3 pt-2 ">
+                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a> |
+
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a> |
+
+                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                        </div>
+                    </div>
+@* 
+                    <div class="col-md-10 col-lg-6 col-xl-5 d-flex align-items-center">
+
+                        <section> *@
+                        @*     <h3>Use another service to log in.</h3>
+                            <hr />
+                            @{
+                                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                                {
+                                    <div>
+                                        <p>
+                                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
+                                                article
+                                                about setting up this ASP.NET application to support logging in via external services
+                                            </a>.
+                                        </p>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                                        <div>
+                                            <p>
+                                                @foreach (var provider in Model.ExternalLogins!)
+                                                {
+                                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                                }
+                                            </p>
+                                        </div>
+                                    </form>
+                                }
+                            } *@
+                     @*        <div> 
+                                
+                                
+                            </div>
+                        </section> *@
+
 
                     </div>
 
-                    <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                                <section>
-                                    <h3>Use another service to log in.</h3>
-                                    <hr />
-                                    @{
-                                        if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                                        {
-                                            <div>
-                                                <p>
-                                                    There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
-                                                        article
-                                                        about setting up this ASP.NET application to support logging in via external services
-                                                    </a>.
-                                                </p>
-                                            </div>
-                                        }
-                                        else
-                                        {
-                                            <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                                                <div>
-                                                    <p>
-                                                        @foreach (var provider in Model.ExternalLogins!)
-                                                        {
-                                                            <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                                        }
-                                                    </p>
-                                                </div>
-                                            </form>
-                                        }
-                                    }
-                                    <div>
-                                        <p>
-                                            <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                                        </p>
-                                        <p>
-                                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                                        </p>
-                                        <p>
-                                            <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                                        </p>
-                                    </div>
-                                </section>
-
-
-                            </div>
-                           
                         </div>
                     </div>
               
         </div>
-    </div>
+  
 </section>
  
 @section Scripts {
