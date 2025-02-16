@@ -1,12 +1,14 @@
 ﻿ 
  
-<header class=" mb-5 hero " style="">
+<header class=" mb-5 hero " >
   
     <div class="container hero-container">
         <div class="row align-items-center p-4 box-shadow-design">
 
-            <div class="col-lg-6 mb-5  ">
-                <div class="carousel">
+            <div class="col-lg-6 mb-5  " data-aos="flip-left"
+                 data-aos-easing="ease-out-cubic"
+                 data-aos-duration="2000">
+                <div class="carousel" >
                     <ul class="carousel__list">
                         <li class="carousel__item" data-pos="-2">1</li>
                         <li class="carousel__item" data-pos="-1">2</li>
@@ -18,10 +20,8 @@
 
             </div>
           
-            <div class="col-lg-6 mb-4 mb-lg-0 " data-aos="flip-left"
-                 data-aos-offset="300"
-                 data-aos-easing="ease-in-sine">
-
+            <div class="col-lg-6 mb-4 mb-lg-0 " >
+                 
                 <div class=" me-lg-n5">
                     <div class=" p-lg-4">
                         <h2 class="fw-bold">
@@ -59,7 +59,7 @@
         </div>
     </div>
   
-    <p class="text-center  text-white pt-1" style="font-size:14px">
+    <p class="text-center  text-white pt-1" style="font-size:14px" data-aos="zoom-in">
         * Please note Raktdaan is not a Blood Bank and does not involve in collection , storage & transportation of blood.
         <a asp-controller="home" claas=" text-primary" asp-action="privacy">Please refer T&C for more details</a>
     </p>
@@ -69,7 +69,7 @@
 <!--Main layout-->
 <main class="mt-2 mb-5">
     <div class="container ">
-        <h1 class="text-center  mb-5">"With our blood on demand Web Application designed to connect blood donors and recipients"</h1>
+        <h1 class="text-center  mb-5" data-aos="zoom-out-down" data-aos-duration="400">"With our blood on demand Web Application designed to connect blood donors and recipients"</h1>
         <!--Grid row-->
         <div class="row">
             <!--Grid column-->
@@ -77,7 +77,7 @@
                 <!--Section: Post data-mdb-->
                 <section class="border-bottom mb-4">
                     <img src="https://bansalgroup-assets.s3.ap-south-1.amazonaws.com/PRD/Bansal_Hospital/2020/09/Blood-Bank.jpg"
-                         class="img-fluid shadow-2-strong rounded mb-4" alt="" />
+                         class="img-fluid shadow-2-strong rounded mb-4" alt="" data-aos="zoom-out-up" data-aos-duration="2000" />
  
                 </section>
                 <!--Section: Post data-mdb-->
@@ -114,7 +114,7 @@
                         <li>White blood cells make up about 1% of your blood.</li>
                     </ol>
 
-                    <div class="note note-warning mb-4  box-shadow-design" id="tips">
+                    <div class="note note-warning mb-4  box-shadow-design" id="tips" data-aos="zoom-out-up">
                         <h4>  <strong>Tips:</strong> Here are some tips to put your mind at ease during the blood donation process</h4><br />
                         <strong>
                             The day before
@@ -178,7 +178,7 @@
                     <img src="https://png.pngtree.com/png-vector/20220708/ourmid/pngtree-blood-bank-word-cloud-concept-png-image_5814084.png"  class="img-fluid  rounded mb-4"
                          alt="" />
 
-                    <div class="row p-2 box-shadow-design ">
+                    <div class="row p-2 box-shadow-design " data-aos="fade-right">
                         <div class="col-3">
                             <img src="/img/final.jpg"
                                  class="img-fluid" style="border-radius:100%" alt="" />
@@ -197,19 +197,19 @@
                 </section>
                 <!--Section: Author-->
                 <!--Section: Share buttons-->
-                <section class="text-center border-bottom py-4 mb-4">
+                <section class="text-center border-bottom py-4 mb-4 ">
                     <p><strong>Do connect with Mr. Kshitij Jain - Founder of Raktdaan on Social Media</strong></p>
 
-                    <button type="button" class="btn btn-danger1 me-1" data-mdb-ripple-init style="background-color: #3b5998;">
+                    <button type="button" class="btn btn-danger1 me-lg-1 me-2" data-mdb-ripple-init style="background-color: #3b5998;">
                         <i class="fab fa-facebook-f"></i>
                     </button>
-                    <button type="button" class="btn btn-danger1 me-1" data-mdb-ripple-init style="background-color: #55acee;">
+                    <button type="button" class="btn btn-danger1 me-lg-1 me-2" data-mdb-ripple-init style="background-color: #55acee;">
                         <i class="fab fa-twitter"></i>
                     </button>
-                    <button type="button" class="btn btn-danger1 me-1" data-mdb-ripple-init style="background-color: #0082ca;">
+                    <button type="button" class="btn btn-danger1 me-lg-1 me-2" data-mdb-ripple-init style="background-color: #0082ca;">
                         <i class="fab fa-linkedin"></i>
                     </button>
-                    <button type="button" class="btn btn-danger1 me-1" data-mdb-ripple-init>
+                    <button type="button" class="btn btn-danger1 me-lg-1 me-2 mx-auto" data-mdb-ripple-init>
                         <i class="fas fa-comments me-2"></i>Add comment
                     </button>
                 </section>
@@ -221,9 +221,9 @@
                 <!--Section: Sidebar-->
                 <section class="sticky-top"">
                     <!--Section: Ad-->
-                    <section class="text-center border-bottom pb-4 mb-4">
-                        <div class="bg-image hover-overlay mb-4" data-mdb-ripple-init>
-                            <div class="container my-5">
+                    <section class="text-center border-bottom pb-4 mb-4" data-aos="fade-in">
+                        <div class="bg-image hover-overlay mb-4" data-mdb-ripple-init >
+                            <div class="container my-5" >
                                 <h2 class="text-center mb-4">Blood Type Compatibility</h2>
                                 <table class="table box-shadow-design table-responsive-md table-stripe table-bordered shadow">
                                     <thead class="thead-dark">
@@ -280,7 +280,7 @@
                         </div>
                        
 
-                        <div class="box-shadow-design p-4">
+                        <div class="box-shadow-design p-4" data-aos="fade-left">
                             <h2>Why Raktdaan</h2>
                             <strong>
                                 Localized Search: </strong>
