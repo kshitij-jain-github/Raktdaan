@@ -4,26 +4,25 @@
     ViewData["Title"] = "Register";
 }
 
-<section class="vh-100"  >
-  <div class="container h-100">
+<section class="vh-100 mb-5"  >
+  <div class="container text-hite h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
-        <div class=" "  >
-          <div class=" ">
-            <div class="row justify-content-center">
+       
+            <div class="row box-shadow-design text-white justify-content-center">
               <div class="col-md-10 col-lg-8   order-2 order-lg-1">
 
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                <p class="text-center text-white h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
                 <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
                                     <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6 ">
                                             <div class="d-flex flex-row align-items-center mb-4">
                                                 <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                                 <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                                     <input asp-for="Input.Full_Name" type="text" id="form3Example1c" class="form-control" />
-                                                    <label asp-for="Input.Full_Name" class="form-label" for="form3Example1c">Your Name</label>
+                                            <label asp-for="Input.Full_Name" class="form-label text-white" for="form3Example1c">Your Name</label>
                                                 </div>
 
                                             </div>
@@ -33,7 +32,7 @@
                                                 <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                                 <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                                     <input asp-for="Input.Email"  type="email" id="form3Example3c" class="form-control" />
-                                                    <label asp-for="Input.Email" class="form-label" for="form3Example3c"> Email</label>
+                                            <label asp-for="Input.Email" class="form-label text-white" for="form3Example3c"> Email</label>
                                                 </div>
 
                                             </div>
@@ -43,7 +42,7 @@
                                                 <i class="fas fa-city fa-lg me-3 fa-fw"></i>
                                                 <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                                     <input asp-for="Input.City" type="text" id="form3Example4c" class="form-control" />
-                                                    <label asp-for="Input.City" class="form-label" for="form3Example4c">City</label>
+                                            <label asp-for="Input.City" class="form-label text-white" for="form3Example4c">City</label>
                                                 </div>                                          
 
                                             </div>
@@ -53,7 +52,7 @@
                                                 <i class="fas fa-flag fa-lg me-3 fa-fw"></i>
                                                 <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                                     <input asp-for ="Input.Country" type="text" id="form3Example4cd" class="form-control" />
-                                                    <label asp-for="Input.Country"  class="form-label" for="form3Example4cd">Country</label>
+                                            <label asp-for="Input.Country" class="form-label text-white" for="form3Example4cd">Country</label>
                                                 </div>                                             
 
                                             </div>
@@ -62,7 +61,7 @@
                                                 <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                                 <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                                     <input asp-for="Input.Password" type="password" id="form3Example4cd" class="form-control" />
-                                                    <label asp-for="Input.Password" class="form-label" for="form3Example4cd">Password</label>
+                                            <label asp-for="Input.Password" class="form-label text-white" for="form3Example4cd">Password</label>
                                                 </div>                                              
 
                                             </div>
@@ -71,7 +70,7 @@
                                                 <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                                 <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                                     <input asp-for="Input.ConfirmPassword" type="password" id="form3Example4cd" class="form-control" />
-                                                    <label asp-for="Input.ConfirmPassword" class="form-label" for="form3Example4cd">Re-enter Password</label>
+                                            <label asp-for="Input.ConfirmPassword" class="form-label text-white" for="form3Example4cd">Re-enter Password</label>
                                                 </div>                                 
 
                                             </div>
@@ -83,7 +82,7 @@
 
                                                  <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                                     <input asp-for="Input.PhoneNumber"  type="number" id="form3Example1c" class="form-control" />
-                                                    <label asp-for="Input.PhoneNumber"  class="form-label" for="form3Example1c">Phone No.</label>
+                                            <label asp-for="Input.PhoneNumber" class="form-label text-white" for="form3Example1c">Phone No.</label>
                                                 </div>                                
 
                                             </div>
@@ -94,7 +93,7 @@
 
                                                  <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                                     <input asp-for="Input.Address"  type="text" id="form3Example3c" class="form-control" />
-                                                    <label asp-for="Input.Address"  class="form-label" for="form3Example3c">Address</label>
+                                            <label asp-for="Input.Address" class="form-label text-white" for="form3Example3c">Address</label>
                                                 </div>                           
 
                                             </div>
@@ -105,7 +104,7 @@
 
                                                  <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                                     <input asp-for="Input.State" type="text" id="form3Example4c" class="form-control" />
-                                                    <label asp-for="Input.State" class="form-label" for="form3Example4c">State</label>
+                                            <label asp-for="Input.State" class="form-label text-white" for="form3Example4c">State</label>
                                                 </div>                             
 
                                             </div>
@@ -116,7 +115,7 @@
 
                                                  <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                                     <input asp-for="Input.PostalCode"  type="number" id="form3Example4cd" class="form-control" />
-                                                    <label asp-for="Input.PostalCode" class="form-label" for="form3Example4cd"> Pin Code </label>
+                                            <label asp-for="Input.PostalCode" class="form-label text-white" for="form3Example4cd"> Pin Code </label>
                                                 </div>                                  
 
                                             </div>
@@ -156,16 +155,10 @@
                 </form>
 
               </div>
-              <div class="col-md-10 col-lg-4   d-flex align-items-center order-1 order-lg-2">
-
-                                <img src="https://clipart-library.com/2023/nTBMARyrc.jpg"
-                  class="img-fluid" alt="Sample image">
-
-              </div>
+             
             </div>
           </div>
-        </div>
-      </div>
+ 
     </div>
   </div>
 </section>
