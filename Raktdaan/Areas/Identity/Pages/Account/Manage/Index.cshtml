@@ -5,10 +5,10 @@
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
 
-<h3>@ViewData["Title"]</h3>
+<h3 class="text-white">@ViewData["Title"]</h3>
 
 <partial name="_StatusMessage" for="StatusMessage" />
-<div class="row">
+<div class="row text-white">
     <div class="col">
         <form id="profile-form" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
@@ -19,16 +19,16 @@
             <div class="row mt-4 mb-4">
                 <div class="col">
                     <div class="form-outline" data-mdb-input-init>
-                        <input asp-for="Input.Full_Name" type="text" id="form3Example1" class="form-control" />
-                        <label asp-for="Input.Full_Name" class="form-label" for="form3Example1">Full Name</label>
+                        <input asp-for="Input.Full_Name" type="text" id="form3Example1" class="form-control text-white" />
+                        <label asp-for="Input.Full_Name" class="form-label text-white" for="form3Example1">Full Name</label>
                     </div>
                     <span asp-validation-for="Input.Full_Name" class="text-danger"></span>
                 </div>
                 <div class="col">
                     <div class="form-outline" data-mdb-input-init>
                         <div class="form-outline" data-mdb-input-init>
-                            <input asp-for="Input.Email" type="text" id="form3Example1" class="form-control" disabled />
-                            <label asp-for="Input.Email" class="form-label" for="form3Example1">Email</label>
+                            <input asp-for="Input.Email" type="text" id="form3Example1" class="form-control " disabled />
+                            <label asp-for="Input.Email" class="form-label text-white" for="form3Example1">Email</label>
                         </div>
                         <span asp-validation-for="Input.Email" class="text-danger"></span>
 
@@ -38,16 +38,16 @@
             <div class="row mt-4 mb-4">
                 <div class="col">
                     <div class="form-outline" data-mdb-input-init>
-                        <input asp-for="Input.PhoneNumber" type="text" id="form3Example1" class="form-control" />
-                        <label asp-for="Input.PhoneNumber" class="form-label" for="form3Example1">Phone Number</label>
+                        <input asp-for="Input.PhoneNumber" type="text" id="form3Example1" class="form-control text-white" />
+                        <label asp-for="Input.PhoneNumber" class="form-label text-white" for="form3Example1">Phone Number</label>
                     </div>
                     <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
                 </div>
                 <div class="col">
                     <div class="form-outline" data-mdb-input-init>
                         <div class="form-outline" data-mdb-input-init>
-                            <input asp-for="Input.Blood_group" type="text" id="form3Example1" class="form-control" />
-                            <label asp-for="Input.Blood_group" class="form-label" for="form3Example1">Blood Group</label>
+                            <input asp-for="Input.Blood_group" type="text" id="form3Example1" class="form-control text-white" />
+                            <label asp-for="Input.Blood_group" class="form-label text-white" for="form3Example1">Blood Group</label>
                         </div>
                         <span asp-validation-for="Input.Blood_group" class="text-danger"></span>
 
@@ -57,15 +57,15 @@
             <div class="row mt-4 mb-4">
                 <div class="col">
                     <div class="form-outline" data-mdb-input-init>
-                        <input asp-for="Input.Address" type="text" id="form3Example1" class="form-control" />
-                        <label asp-for="Input.Address" class="form-label" for="form3Example1">Address</label>
+                        <input asp-for="Input.Address" type="text" id="form3Example1" class="form-control text-white" />
+                        <label asp-for="Input.Address" class="form-label text-white" for="form3Example1">Address</label>
                     </div>
                     <span asp-validation-for="Input.Address" class="text-danger"></span>
                 </div>
                 <div class="col">
                     <div class="form-outline" data-mdb-input-init>
-                        <input asp-for="Input.PostalCode" type="text" id="form3Example1" class="form-control" />
-                        <label asp-for="Input.PostalCode" class="form-label" for="form3Example1">Postal Code</label>
+                        <input asp-for="Input.PostalCode" type="text" id="form3Example1" class="form-control text-white" />
+                        <label asp-for="Input.PostalCode" class="form-labelead text-white" for="form3Example1">Postal Code</label>
                     </div>
                     <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
                 </div>
@@ -74,23 +74,23 @@
             <div class="row mt-4 mb-4">
                 <div class="col">
                     <div class="form-outline" data-mdb-input-init>
-                        <input asp-for="Input.City" type="text" id="form3Example1" class="form-control" />
-                        <label asp-for="Input.City" class="form-label" for="form3Example1">City</label>
+                        <input asp-for="Input.City" type="text" id="form3Example1" class="form-control text-white" />
+                        <label asp-for="Input.City" class="form-label text-white" for="form3Example1">City</label>
                     </div>
                     <span asp-validation-for="Input.City" class="text-danger"></span>
                 </div>
 
                 <div class="col">
                     <div class="form-outline" data-mdb-input-init>
-                        <input asp-for="Input.State" type="text" id="form3Example1" class="form-control" />
-                        <label asp-for="Input.State" class="form-label" for="form3Example1">State</label>
+                        <input asp-for="Input.State" type="text" id="form3Example1" class="form-control text-white" />
+                        <label asp-for="Input.State" class="form-label text-white" for="form3Example1">State</label>
                     </div>
                     <span asp-validation-for="Input.State" class="text-danger"></span>
                 </div>
                 <div class="col">
                     <div class="form-outline" data-mdb-input-init>
-                        <input asp-for="Input.Country" type="text" id="form3Example1" class="form-control" />
-                        <label asp-for="Input.Country" class="form-label" for="form3Example1">Country</label>
+                        <input asp-for="Input.Country" type="text" id="form3Example1" class="form-control text-white" />
+                        <label asp-for="Input.Country" class="form-label text-white" for="form3Example1">Country</label>
                     </div>
                     <span asp-validation-for="Input.Country" class="text-danger"></span>
                 </div>

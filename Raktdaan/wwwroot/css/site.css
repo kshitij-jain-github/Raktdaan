@@ -30,7 +30,7 @@ body {
 .bg {
 
     /* The image used */
-    background-image: url( "https://img3.wallspic.com/crops/5/7/5/5/6/165575/165575-light-design-azure-orange-rectangle-6880x2880.png");
+    background-image: url( "/img/bg-image.png");
     /* Full height */
     height: 60vh;
     /* Center and scale the image nicely */
@@ -39,8 +39,7 @@ body {
     background-size: cover; 
  
 }
-
-
+ 
 .hero-container {
     position: relative;
     background-image: url("  ");
