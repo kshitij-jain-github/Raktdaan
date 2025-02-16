@@ -395,8 +395,15 @@ img {
 /* section FAQs */
 
 .accordion .accordion-item {
-    border-bottom: 2px solid #e5e5e5;
-    padding: .5% 5%
+    
+    padding: .5% 5%;
+    backdrop-filter: blur(100px);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    border-width: 3px;
+    border-style: solid;
+    border-image: linear-gradient(to right, #870000 0%, #190A05 51%, #870000 100%) 1;
+    background-color:transparent;
+    color:aliceblue;
 }
 
     .accordion .accordion-item button[aria-expanded=true] {
@@ -419,7 +426,7 @@ img {
 
     .accordion button:hover {
         cursor: pointer;
-        color: #dc4c64;
+        color: #fb667e;
     }
 
         .accordion button:hover::after, .accordion button:focus::after {
