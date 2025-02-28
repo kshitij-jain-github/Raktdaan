@@ -1,18 +1,14 @@
-﻿
-
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
-
+﻿ 
 <h1 class="text-center mt-4 text-white"> Find Blood Donar Near You!</h1>
  
 <body>
-  <h2>Table with 100 Entries</h2>
+  <h2>Donor List</h2>
   <!-- Search Filters -->
   <div class="search-container">
-    <input type="text" id="searchName" placeholder="Search by Name">
-    <input type="text" id="searchCity" placeholder="Search by City">
-    <input type="text" id="searchState" placeholder="Search by State">
-    <input type="text" id="searchCountry" placeholder="Search by Country">
+    <input type="text" id="searchName" placeholder="Search by Name" />
+    <input type="text" id="searchCity" placeholder="Search by City" />
+    <input type="text" id="searchState" placeholder="Search by State" />
+    <input type="text" id="searchCountry" placeholder="Search by Country" />
     <select id="searchBloodGroup">
       <option value="">All Blood Groups</option>
       <option value="A+">A+</option>
@@ -27,8 +23,10 @@
     <button class="btn" onclick="applySearch()">Search</button>
     <button class="btn" onclick="resetSearch()">Reset</button>
   </div>
+  
+  <!-- Table Container -->
   <div class="table-container">
-    <table id="dataTable">
+    <table id="donorTable">
       <thead>
         <tr>
           <th>
@@ -64,99 +62,128 @@
           <th>Action</th>
         </tr>
       </thead>
-      <tbody id="tableBody"></tbody>
+      <tbody id="tableBody">
+        <!-- Rows will be populated here -->
+      </tbody>
     </table>
   </div>
+  
+  <!-- Pagination -->
   <div class="pagination" id="pagination"></div>
-
+  
   <script>
-    // Function to fetch ApplicationUser data from the API
+    // Global data variables
+    let data = [];         // Full dataset from API
+    let filteredData = []; // Data after applying search filters
+    const rowsPerPage = 10;
+    let currentPage = 1;
+  
+    // Fetch donor data from API endpoint
     function fetchDonorData() {
       fetch('/Home/GetAll')
         .then(response => response.json())
         .then(result => {
-          const users = result.data;
-          populateTable(users);
+          data = result.data;
+          filteredData = data.slice();
+          renderTable(1);
         })
         .catch(error => console.error('Error fetching donor data:', error));
     }
-
-    // Function to populate the table with the data
-    function populateTable(users) {
+  
+    // Render table for the current page
+    function renderTable(page) {
       const tableBody = document.getElementById('tableBody');
-      tableBody.innerHTML = ""; // Clear any existing content
-
-      users.forEach((user, index) => {
-        // Adjust property names based on your ApplicationUser model
+      tableBody.innerHTML = '';
+      currentPage = page;
+      const start = (page - 1) * rowsPerPage;
+      const end = start + rowsPerPage;
+      const paginatedItems = filteredData.slice(start, end);
+  
+      paginatedItems.forEach((item, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
-          <td>${index + 1}</td>
-          <td>${user.full_Name || user.Full_Name}</td>
-          <td>${user.blood_group || user.Blood_group}</td>
-          <td>${user.state || user.State}</td>
-          <td>${user.city || user.City}</td>
-          <td>${user.country || user.Country}</td>
-          <td><a href="/Home/Donar_details?id=${user.id}" class="btn">Get Details</a></td>
+          <td>${start + index + 1}</td>
+          <td>${item.full_Name || item.Full_Name}</td>
+          <td>${item.blood_group || item.Blood_group}</td>
+          <td>${item.state || item.State}</td>
+          <td>${item.city || item.City}</td>
+          <td>${item.country || item.Country}</td>
+          <td><a href="/Home/Donar_details?id=${item.id}" class="btn">Get Details</a></td>
         `;
         tableBody.appendChild(row);
       });
+  
+      renderPagination();
     }
-
-    // Call fetchDonorData on page load
-    document.addEventListener('DOMContentLoaded', fetchDonorData);
-
-    // Function to sort the filteredData array and re-render the table (resets to page 1)
+  
+    // Sort table by a given column (columnIndex) in the specified order ('asc' or 'desc')
     function sortTable(columnIndex, order) {
-      const columnMap = ["sno", "name", "bloodGroup", "state", "city", "country"];
-      const prop = columnMap[columnIndex];
+      // Map column index to property name. Here, index 0 is sorted by id (or maintained order)
+      let prop = '';
+      if (columnIndex === 0) {
+        prop = "id"; // Assuming id is numeric
+      } else if (columnIndex === 1) {
+        prop = "full_Name";
+      } else if (columnIndex === 2) {
+        prop = "blood_group";
+      } else if (columnIndex === 3) {
+        prop = "state";
+      } else if (columnIndex === 4) {
+        prop = "city";
+      } else if (columnIndex === 5) {
+        prop = "country";
+      }
+  
       filteredData.sort((a, b) => {
-        let valA = a[prop];
-        let valB = b[prop];
-        if (typeof valA === 'number' && typeof valB === 'number') {
+        let valA = a[prop] ? a[prop].toString().toLowerCase() : "";
+        let valB = b[prop] ? b[prop].toString().toLowerCase() : "";
+  
+        // If both values are numbers, compare numerically
+        if (!isNaN(valA) && !isNaN(valB)) {
           return order === 'asc' ? valA - valB : valB - valA;
-        } else {
-          return order === 'asc' 
-            ? String(valA).localeCompare(String(valB)) 
-            : String(valB).localeCompare(String(valA));
         }
+        // Otherwise, compare as strings
+        return order === 'asc' ? valA.localeCompare(valB) : valB.localeCompare(valA);
       });
+  
       renderTable(1);
     }
-
-    // Function to render pagination buttons
+  
+    // Render pagination buttons based on the number of items in filteredData
     function renderPagination() {
-      const paginationDiv = document.getElementById("pagination");
-      paginationDiv.innerHTML = "";
+      const paginationDiv = document.getElementById('pagination');
+      paginationDiv.innerHTML = '';
       const totalPages = Math.ceil(filteredData.length / rowsPerPage);
       for (let i = 1; i <= totalPages; i++) {
-        const btn = document.createElement("button");
+        const btn = document.createElement('button');
         btn.innerText = i;
-        if (i === currentPage) btn.classList.add("active");
-        btn.addEventListener("click", () => renderTable(i));
+        if (i === currentPage) btn.classList.add('active');
+        btn.addEventListener('click', () => renderTable(i));
         paginationDiv.appendChild(btn);
       }
     }
-
-    // Function to apply search filters
+  
+    // Apply search filters based on input values
     function applySearch() {
       const nameInput = document.getElementById('searchName').value.toLowerCase();
       const cityInput = document.getElementById('searchCity').value.toLowerCase();
       const stateInput = document.getElementById('searchState').value.toLowerCase();
       const countryInput = document.getElementById('searchCountry').value.toLowerCase();
       const bloodGroupInput = document.getElementById('searchBloodGroup').value;
-      
+  
       filteredData = data.filter(item => {
-        const matchName = nameInput === '' || item.name.toLowerCase().includes(nameInput);
-        const matchCity = cityInput === '' || item.city.toLowerCase().includes(cityInput);
-        const matchState = stateInput === '' || item.state.toLowerCase().includes(stateInput);
-        const matchCountry = countryInput === '' || item.country.toLowerCase().includes(countryInput);
-        const matchBloodGroup = bloodGroupInput === '' || item.bloodGroup === bloodGroupInput;
+        const matchName = nameInput === '' || ((item.full_Name || item.Full_Name) || '').toLowerCase().includes(nameInput);
+        const matchCity = cityInput === '' || ((item.city || item.City) || '').toLowerCase().includes(cityInput);
+        const matchState = stateInput === '' || ((item.state || item.State) || '').toLowerCase().includes(stateInput);
+        const matchCountry = countryInput === '' || ((item.country || item.Country) || '').toLowerCase().includes(countryInput);
+        const matchBloodGroup = bloodGroupInput === '' || (item.blood_group === bloodGroupInput) || (item.Blood_group === bloodGroupInput);
         return matchName && matchCity && matchState && matchCountry && matchBloodGroup;
       });
+  
       renderTable(1);
     }
-
-    // Function to reset search filters
+  
+    // Reset search filters and display the full dataset
     function resetSearch() {
       document.getElementById('searchName').value = '';
       document.getElementById('searchCity').value = '';
@@ -166,9 +193,9 @@
       filteredData = data.slice();
       renderTable(1);
     }
-
-    // Initial render
-    renderTable(1);
+  
+    // Fetch donor data when the page loads
+    document.addEventListener('DOMContentLoaded', fetchDonorData);
   </script>
 </body>
  
