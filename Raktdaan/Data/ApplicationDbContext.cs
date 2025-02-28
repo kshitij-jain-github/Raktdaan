@@ -11,7 +11,7 @@ namespace Raktdaan.Data
         }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
-        public DbSet<Payment> Payments { get; set; }
+        
 
 
         protected override void OnModelCreating(ModelBuilder builder)
