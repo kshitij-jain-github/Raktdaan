@@ -577,9 +577,8 @@ img {
 
 .table-container {
     overflow-x: auto;
-  backdrop-filter:blur(10px);
- background-color:#62001ccc;
-
+    backdrop-filter: blur(10px);
+    background: linear-gradient(135deg, #4a0404e6, rgba(0, 0, 0, 0.2));
 }
 
 table {
@@ -596,7 +595,7 @@ th, td {
 }
 
 th {
-    background-color: #dc4c64;
+    background-color: #870000;
 }
 
 .sort-btn {
@@ -618,13 +617,14 @@ th {
     .pagination button {
         margin: 0 2px;
         padding: 5px 10px;
-        border: 1px solid #007bff;
+        border: 1px solid  #870000;
+   
         background-color: white;
         cursor: pointer;
     }
 
         .pagination button.active {
-            background-color: #007bff;
+            background-color: #870000;
             color: white;
             font-weight: bold;
         }
@@ -649,5 +649,49 @@ th {
 
 
 
- 
-  
+
+
+
+.modern-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    background: linear-gradient(135deg, #4a0404e6, rgba(0, 0, 0, 0.2));
+    color: #fff;
+    backdrop-filter:blur(10px);
+    border:2px solid white;
+}
+
+    .modern-card .card-body {
+        padding: 2rem;
+    }
+
+    .modern-card .profile-img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border: 2px solid #fff;
+    }
+
+    .modern-card .donor-details h5 {
+        font-weight: bold;
+        border-bottom: 1px solid rgba(255,255,255,0.5);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .modern-card .donor-details p {
+        margin: 0.3rem 0;
+        font-size: 1rem;
+    }
+
+        .modern-card .donor-details p strong {
+            display: inline-block;
+            width: 160px;
+        }
+
+    .modern-card .card-footer {
+        background-color: #4a0404e6;
+        font-size: 0.85rem;
+    }

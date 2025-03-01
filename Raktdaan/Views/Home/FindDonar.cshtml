@@ -19,8 +19,8 @@
       <option value="AB+">AB+</option>
       <option value="AB-">AB-</option>
     </select>
-    <button class="btn btn-danger1" onclick="applySearch()">Search</button>
-    <button class="btn btn-danger1" onclick="resetSearch()">Reset</button>
+    <button class="btn btn-danger" onclick="applySearch()">Search</button>
+    <button class="btn btn-danger" onclick="resetSearch()">Reset</button>
   </div>
   
   <!-- Table Container -->
@@ -49,11 +49,7 @@
             <button class="sort-btn" onclick="sortTable(4, 'asc')">▲</button>
             <button class="sort-btn" onclick="sortTable(4, 'desc')">▼</button>
           </th>
-          <th>
-            Country 
-            <button class="sort-btn" onclick="sortTable(5, 'asc')">▲</button>
-            <button class="sort-btn" onclick="sortTable(5, 'desc')">▼</button>
-          </th>
+       
           <th>Action</th>
         </tr>
       </thead>
@@ -102,8 +98,8 @@
           <td>${item.blood_group || item.Blood_group}</td>
           <td>${item.state || item.State}</td>
           <td>${item.city || item.City}</td>
-          <td>${item.country || item.Country}</td>
-          <td><a href="/Home/Donar_details?id=${item.id}" class="btn btn-danger1">Get Details</a></td>
+         
+          <td><a href="/Home/Donar_details?id=${item.id}" class="btn btn-danger">Get Details</a></td>
         `;
         tableBody.appendChild(row);
       });
@@ -123,9 +119,7 @@
         prop = "state";
       } else if (columnIndex === 4) {
         prop = "city";
-      } else if (columnIndex === 5) {
-        prop = "country";
-      }
+      }  
   
       filteredData.sort((a, b) => {
         let valA = a[prop] ? a[prop].toString().toLowerCase() : "";
@@ -161,14 +155,14 @@
       const nameInput = document.getElementById('searchName').value.toLowerCase();
       const cityInput = document.getElementById('searchCity').value.toLowerCase();
       const stateInput = document.getElementById('searchState').value.toLowerCase();
-      const countryInput = document.getElementById('searchCountry').value.toLowerCase();
+     
       const bloodGroupInput = document.getElementById('searchBloodGroup').value;
   
       filteredData = data.filter(item => {
         const matchName = nameInput === '' || ((item.full_Name || item.Full_Name) || '').toLowerCase().includes(nameInput);
         const matchCity = cityInput === '' || ((item.city || item.City) || '').toLowerCase().includes(cityInput);
         const matchState = stateInput === '' || ((item.state || item.State) || '').toLowerCase().includes(stateInput);
-        const matchCountry = countryInput === '' || ((item.country || item.Country) || '').toLowerCase().includes(countryInput);
+        
         const matchBloodGroup = bloodGroupInput === '' || (item.blood_group === bloodGroupInput) || (item.Blood_group === bloodGroupInput);
         return matchName && matchCity && matchState && matchCountry && matchBloodGroup;
       });
@@ -181,7 +175,7 @@
       document.getElementById('searchName').value = '';
       document.getElementById('searchCity').value = '';
       document.getElementById('searchState').value = '';
-      document.getElementById('searchCountry').value = '';
+     
       document.getElementById('searchBloodGroup').value = '';
       filteredData = data.slice();
       renderTable(1);
