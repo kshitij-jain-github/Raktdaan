@@ -1,5 +1,5 @@
 ﻿ 
-<body>
+ 
     <div class="container my-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -15,12 +15,14 @@
                             <!-- Donor Details -->
                             <div class="col-md-8  mx-auto donor-details text-white">
                                 <h3 class="mb-3 mx-auto">@Model.Full_Name</h3>
-                                <h5 class="mb-3 mx-auto">Donor Details</h5>
-                                <p><strong>Blood Group:</strong> @Model.Blood_group</p>
+                            <h5 class="mb-3 mx-auto">Donor Details  <p><strong>Blood Group:</strong> @Model.Blood_group</p>   <p><strong>Phone Number:</strong> @Model.PhoneNumber</p></h5>
+                          
+                                <p><strong>Address:</strong> @Model.Address</p>
+                                <p><strong>PIN Code:</strong> @Model.PostalCode</p>
                                 <p><strong>City:</strong> @Model.City</p>
                                 <p><strong>State:</strong> @Model.State</p>
                                 <p><strong>Country:</strong> @Model.Country</p>
-                                <p><strong>Phone Number:</strong> @Model.PhoneNumber</p>
+                              
                             </div>
                         </div>
                     </div>

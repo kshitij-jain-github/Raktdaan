@@ -62,6 +62,8 @@ namespace Raktdaan.Controllers
                 {
                     Full_Name = u.Full_Name, // Adjust according to how you store the user's full name
                     Blood_group = u.Blood_group,
+                    Address = u.Address,
+                    PostalCode= u.PostalCode,
                     City = u.City,
                     State = u.State,
                     Country = u.Country,
