@@ -163,7 +163,7 @@
         const matchState = stateInput === '' || ((item.state || item.State) || '').toLowerCase().includes(stateInput);
         
         const matchBloodGroup = bloodGroupInput === '' || (item.blood_group === bloodGroupInput) || (item.Blood_group === bloodGroupInput);
-        return matchName && matchCity && matchState && matchCountry && matchBloodGroup;
+        return matchName && matchCity && matchState  && matchBloodGroup;
       });
   
       renderTable(1);
