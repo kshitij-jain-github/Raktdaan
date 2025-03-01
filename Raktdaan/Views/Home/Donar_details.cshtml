@@ -1,25 +1,78 @@
-﻿<div class="container my-4">
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <div class="card box-shadow-design">
-                <div class="card-body d-flex justify-content-center align-items-center">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg" class="rounded-circle img-fluid me-4" style="width: 150px;">
-                    <div class="text-center">
-                        <h4 class="card-title mb-2">@Model.Full_Name</h4>
-                        <p class="card-text mb-2">Blood Group: @Model.Blood_group</p>
-                        <p class="mb-2"><i class="fas fa-map-marker-alt fa-fw"></i> @Model.City, @Model.State, @Model.Country</p>
-                        <p class="mb-4"><i class="fas fa-phone fa-fw"></i> @Model.PhoneNumber</p>
-                        <a href="@Url.Action("FindDonar", "Home")" class="btn btn-danger">Back to List</a>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Donor Card</title>
+    <!-- Include Bootstrap 5 CSS and FontAwesome for icons -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .modern-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            color: #fff;
+        }
+
+            .modern-card .card-body {
+                background-color: rgba(0, 0, 0, 0.3);
+                padding: 2rem;
+            }
+
+                .modern-card .card-body img {
+                    border: 5px solid #fff;
+                    width: 150px;
+                    height: 150px;
+                    object-fit: cover;
+                    margin-bottom: 1rem;
+                }
+
+            .modern-card .card-footer {
+                background-color: rgba(0, 0, 0, 0.2);
+                font-size: 0.85rem;
+            }
+
+            .modern-card .btn-custom {
+                background-color: #fff;
+                color: #2193b0;
+                border: none;
+                border-radius: 50px;
+                padding: 0.5rem 1.5rem;
+                transition: background-color 0.3s;
+            }
+
+                .modern-card .btn-custom:hover {
+                    background-color: #e9ecef;
+                }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card modern-card">
+                    <div class="card-body text-center">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRr0YlatAy-hrNCQjzZ7fqDzNiXt7HGmzVaA&s" class="rounded-circle img-fluid" alt="User Photo">
+                        <h4 class="card-title mt-3">@Model.Full_Name</h4>
+                        <p class="card-text">Blood Group: <strong>@Model.Blood_group</strong></p>
+                        <p><i class="fas fa-map-marker-alt"></i> @Model.City, @Model.State, @Model.Country</p>
+                        <p><i class="fas fa-phone"></i> @Model.PhoneNumber</p>
+                        <a href='@Url.Action("FindDonar", "Home")' class="btn btn-custom mt-3">Back to List</a>
                     </div>
-                </div>
-                <div class="card-footer text-muted text-center">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p class="disclaimer">Disclaimer: The details provided are only for blood donation purposes. Please do not misuse this information.</p>
-                        </div>
+                    <div class="card-footer text-center">
+                        <p class="mb-0">Disclaimer: The details provided are only for blood donation purposes. Please do not misuse this information.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

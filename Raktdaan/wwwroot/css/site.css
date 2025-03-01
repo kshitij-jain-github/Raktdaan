@@ -578,30 +578,35 @@ img {
 .table-container {
     overflow-x: auto;
   backdrop-filter:blur(10px);
- background-color:pink
+ background-color:#62001ccc;
+
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+  
 }
 
 th, td {
-    border: 1px solid #ddd;
+    border: 1px solid #000;
     padding: 8px;
+    color: white;
     text-align: left;
 }
 
 th {
-    background-color: #f4f4f4;
+    background-color: #dc4c64;
 }
 
 .sort-btn {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 12px;
-    margin-left: 4px;
+    font-size: 10px;
+    margin:0;
+    padding:0;
+   
 }
  
 

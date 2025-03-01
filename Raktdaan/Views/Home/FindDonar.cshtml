@@ -1,8 +1,7 @@
 ﻿ 
 <h1 class="text-center mt-4 text-white"> Find Blood Donar Near You!</h1>
  
-<body>
-  <h2>Donor List</h2>
+ 
   <!-- Search Filters -->
   <div class="search-container">
     <input type="text" id="searchName" placeholder="Search by Name" />
@@ -20,8 +19,8 @@
       <option value="AB+">AB+</option>
       <option value="AB-">AB-</option>
     </select>
-    <button class="btn" onclick="applySearch()">Search</button>
-    <button class="btn" onclick="resetSearch()">Reset</button>
+    <button class="btn btn-danger1" onclick="applySearch()">Search</button>
+    <button class="btn btn-danger1" onclick="resetSearch()">Reset</button>
   </div>
   
   <!-- Table Container -->
@@ -29,11 +28,7 @@
     <table id="donorTable">
       <thead>
         <tr>
-          <th>
-            S.No 
-            <button class="sort-btn" onclick="sortTable(0, 'asc')">▲</button>
-            <button class="sort-btn" onclick="sortTable(0, 'desc')">▼</button>
-          </th>
+         
           <th>
             Name 
             <button class="sort-btn" onclick="sortTable(1, 'asc')">▲</button>
@@ -102,13 +97,13 @@
       paginatedItems.forEach((item, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
-          <td>${start + index + 1}</td>
+          
           <td>${item.full_Name || item.Full_Name}</td>
           <td>${item.blood_group || item.Blood_group}</td>
           <td>${item.state || item.State}</td>
           <td>${item.city || item.City}</td>
           <td>${item.country || item.Country}</td>
-          <td><a href="/Home/Donar_details?id=${item.id}" class="btn">Get Details</a></td>
+          <td><a href="/Home/Donar_details?id=${item.id}" class="btn btn-danger1">Get Details</a></td>
         `;
         tableBody.appendChild(row);
       });
@@ -120,9 +115,7 @@
     function sortTable(columnIndex, order) {
       // Map column index to property name. Here, index 0 is sorted by id (or maintained order)
       let prop = '';
-      if (columnIndex === 0) {
-        prop = "id"; // Assuming id is numeric
-      } else if (columnIndex === 1) {
+       if (columnIndex === 1) {
         prop = "full_Name";
       } else if (columnIndex === 2) {
         prop = "blood_group";
@@ -197,5 +190,5 @@
     // Fetch donor data when the page loads
     document.addEventListener('DOMContentLoaded', fetchDonorData);
   </script>
-</body>
+ 
  
