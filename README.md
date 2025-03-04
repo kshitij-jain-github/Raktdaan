@@ -11,7 +11,7 @@ A brief description of your project – what it does, why it’s useful, and any
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Screenshots](#screenshots)
+- [Screenshots & Demo](#screenshots--demo)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
